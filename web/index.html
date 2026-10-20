@@ -4,150 +4,252 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trend History</title>
+<meta name="description" content="Hacker News, GitHub Trending, arXiv를 매일 기록하고 무엇이 달라졌는지 보여주는 대시보드">
+<meta property="og:title" content="Trend History">
+<meta property="og:description" content="Hacker News · GitHub Trending · arXiv, 매일 09:00 KST에 기록하는 트렌드 히스토리">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jihoo12.github.io/trends/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232a78d6'/%3E%3Cpath d='M7 21l6-6 4 4 8-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script>
+  // apply the saved theme before first paint
+  try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
+</script>
 <style>
   :root {
     color-scheme: light;
     --surface-0: #f4f4f2;
     --surface-1: #fcfcfb;
+    --surface-2: #f0efec;
     --border: #e4e3df;
     --grid: #ebeae6;
     --text-primary: #0b0b0b;
     --text-secondary: #52514e;
     --text-muted: #6f6e69;
     --accent: #2a78d6;
+    --accent-wash: rgb(42 120 214 / 0.08);
     --series-1: #2a78d6;
-    --series-2: #eb6834;
-    --series-3: #1baf7a;
-    --series-4: #eda100;
-    --series-5: #e87ba4;
     --good: #008300;
     --bad: #c43a39;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.04);
+    --src-hn: #eb6834;
+    --src-gh: #52514e;
+    --src-arxiv: #b31b1b;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
       --surface-0: #121211;
       --surface-1: #1a1a19;
+      --surface-2: #232321;
       --border: #2e2e2c;
       --grid: #2a2a28;
       --text-primary: #f0efec;
       --text-secondary: #c3c2b7;
       --text-muted: #9a998f;
       --accent: #3987e5;
+      --accent-wash: rgb(57 135 229 / 0.12);
       --series-1: #3987e5;
-      --series-2: #d95926;
-      --series-3: #199e70;
-      --series-4: #c98500;
-      --series-5: #d55181;
       --good: #4cb84c;
       --bad: #e66767;
+      --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+      --src-hn: #d95926;
+      --src-gh: #c3c2b7;
+      --src-arxiv: #e66767;
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
     --surface-0: #121211;
     --surface-1: #1a1a19;
+    --surface-2: #232321;
     --border: #2e2e2c;
     --grid: #2a2a28;
     --text-primary: #f0efec;
     --text-secondary: #c3c2b7;
     --text-muted: #9a998f;
     --accent: #3987e5;
+    --accent-wash: rgb(57 135 229 / 0.12);
     --series-1: #3987e5;
-    --series-2: #d95926;
-    --series-3: #199e70;
-    --series-4: #c98500;
-    --series-5: #d55181;
     --good: #4cb84c;
     --bad: #e66767;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+    --src-hn: #d95926;
+    --src-gh: #c3c2b7;
+    --src-arxiv: #e66767;
   }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--surface-0);
     color: var(--text-primary);
-    font: 14px/1.5 system-ui, -apple-system, "Segoe UI", "Noto Sans KR", sans-serif;
+    font: 15px/1.55 "Pretendard Variable", Pretendard, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
-  header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 20px; }
-  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
-  h2 { font-size: 15px; margin: 0 0 2px; }
-  .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; }
-  .meta { color: var(--text-muted); font-size: 13px; }
-  a { color: inherit; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  a { color: inherit; text-decoration-color: var(--border); text-underline-offset: 3px; }
   a:hover { text-decoration-color: currentColor; }
+  code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
 
+  /* ---------- top bar ---------- */
+  .topbar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--surface-0) 82%, transparent); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--border); }
+  .topbar .wrap { display: flex; align-items: center; gap: 12px; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; text-decoration: none; margin-right: auto; }
+  .brand svg { width: 28px; height: 28px; flex: none; }
+  .nav { display: flex; gap: 2px; }
+  .nav a { text-decoration: none; color: var(--text-secondary); font-size: 14px; padding: 6px 10px; border-radius: 8px; }
+  .nav a:hover { background: var(--surface-2); color: var(--text-primary); }
+  @media (max-width: 760px) { .nav { display: none; } }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); font: inherit; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; }
+  .btn:hover { background: var(--surface-2); }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+  .btn.icon { width: 34px; padding: 0; justify-content: center; }
+  @media (max-width: 420px) { .btn .label { display: none; } .btn { width: 34px; padding: 0; justify-content: center; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 40px 0 28px; background: radial-gradient(1000px 260px at 15% -40px, var(--accent-wash), transparent 70%); }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); background: var(--surface-1); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px 4px 10px; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 50%, transparent); animation: pulse 2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 7px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+  .hero h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.2; letter-spacing: -0.025em; margin: 16px 0 10px; font-weight: 800; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 16px; max-width: 640px; }
+  .sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+  .src { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
+  .src::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
+  .src.hn { --c: var(--src-hn); } .src.gh { --c: var(--src-gh); } .src.arxiv { --c: var(--src-arxiv); }
+  .sources .src { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 13px; }
+
+  /* ---------- layout ---------- */
+  main { padding-bottom: 32px; }
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .span-2 { grid-column: 1 / -1; }
   @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
-  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 20px; min-width: 0; box-shadow: var(--shadow); scroll-margin-top: 72px; }
+  @media (max-width: 420px) { .card { padding: 16px; } }
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .card-head > div { min-width: 0; }
+  h2 { font-size: 17px; margin: 0 0 3px; letter-spacing: -0.01em; font-weight: 700; }
+  .sub { color: var(--text-secondary); font-size: 13px; margin: 0; }
 
   .tiles { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 16px; }
   @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tile { padding: 16px 18px; }
   .tile .label { color: var(--text-secondary); font-size: 13px; }
-  .tile .value { font-size: 28px; font-weight: 600; line-height: 1.2; margin-top: 4px; overflow-wrap: anywhere; }
-  .tile .hint { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+  .tile .value { font-size: 30px; font-weight: 700; line-height: 1.2; margin-top: 6px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+  .tile .hint { color: var(--text-muted); font-size: 12px; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
-  .notice { border: 1px solid var(--border); border-left: 3px solid var(--series-4); background: var(--surface-1); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; color: var(--text-secondary); font-size: 13px; }
-  .empty { color: var(--text-muted); font-size: 13px; padding: 24px 0; text-align: center; }
+  .notice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--border); background: var(--surface-1); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; color: var(--text-secondary); font-size: 14px; }
+  .notice::before { content: "i"; flex: none; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font: 700 12px/1 Georgia, serif; color: var(--surface-1); background: var(--text-muted); margin-top: 1px; }
+  .empty { color: var(--text-muted); font-size: 14px; padding: 28px 12px; text-align: center; background: var(--surface-2); border-radius: 10px; }
 
   svg { display: block; max-width: 100%; height: auto; overflow: visible; }
-  svg text { fill: var(--text-secondary); font-size: 12px; }
+  svg text { fill: var(--text-secondary); font-size: 12px; font-family: inherit; }
   svg .axis { stroke: var(--grid); stroke-width: 1; }
   .hit { fill: transparent; cursor: default; }
 
-  .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; padding: 2px; gap: 2px; margin-bottom: 12px; }
-  .tabs button { border: 0; background: none; color: var(--text-secondary); font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 6px; cursor: pointer; }
-  .tabs button[aria-selected="true"] { background: var(--surface-0); color: var(--text-primary); font-weight: 600; }
+  .tabs { display: inline-flex; background: var(--surface-2); border-radius: 10px; padding: 3px; gap: 2px; margin-bottom: 12px; }
+  .tabs button { border: 0; background: none; color: var(--text-secondary); font: inherit; font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 7px; cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--surface-1); color: var(--text-primary); font-weight: 600; box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
 
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; color: var(--text-muted); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-  td { padding: 6px 8px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; color: var(--text-muted); font-weight: 500; font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  td { padding: 7px 8px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+  tr:last-child td { border-bottom: 0; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.kw { font-weight: 600; }
   .up { color: var(--good); } .down { color: var(--bad); }
 
-  ul.list { list-style: none; padding: 0; margin: 0; }
-  ul.list li { padding: 7px 0; border-bottom: 1px solid var(--grid); display: flex; gap: 8px; justify-content: space-between; align-items: baseline; }
-  ul.list li:last-child { border-bottom: 0; }
-  .repo-name { font-weight: 500; overflow-wrap: anywhere; }
-  .desc { color: var(--text-muted); font-size: 12px; display: block; overflow-wrap: anywhere; }
+  ul.list { list-style: none; padding: 0; margin: 0; counter-reset: item; }
+  ul.list li { padding: 10px 0; border-bottom: 1px solid var(--grid); display: flex; gap: 10px; align-items: baseline; }
+  ul.list li:last-child { border-bottom: 0; padding-bottom: 0; }
+  ul.list li:first-child { padding-top: 0; }
+  ul.list.ranked li::before { counter-increment: item; content: counter(item); flex: none; width: 22px; color: var(--text-muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .li-main { flex: 1; min-width: 0; }
+  .repo-name { font-weight: 600; overflow-wrap: anywhere; }
+  .desc { color: var(--text-muted); font-size: 13px; display: block; overflow-wrap: anywhere; margin-top: 2px; }
   .badge { color: var(--text-muted); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 600; color: var(--text-secondary); background: var(--surface-2); border-radius: 5px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; white-space: nowrap; }
 
   .multiples { display: flex; flex-wrap: wrap; gap: 16px 12px; }
   .mini { margin: 0; min-width: 0; flex: 0 0 auto; }
-  .mini figcaption { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; margin-bottom: 4px; }
+  .mini figcaption { display: flex; justify-content: space-between; gap: 6px; font-size: 13px; margin-bottom: 4px; }
   .mini figcaption .repo-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12px; color: var(--text-secondary); }
-  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--c); margin-right: 6px; vertical-align: -1px; }
 
-  #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgb(0 0 0 / 0.12); max-width: 280px; display: none; }
+  #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px; font-size: 13px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.14); max-width: 300px; display: none; }
   #tip b { display: block; margin-bottom: 2px; }
   #tip .muted { color: var(--text-muted); }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--border); margin-top: 16px; padding: 28px 0 40px; color: var(--text-muted); font-size: 13px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  footer a { color: var(--text-secondary); text-decoration: none; }
+  footer a:hover { color: var(--text-primary); }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <h1>Trend History</h1>
-    <span class="meta" id="meta"></span>
-  </header>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M7 21l6-6 4 4 8-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11h6v6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Trend History
+    </a>
+    <nav class="nav" aria-label="섹션">
+      <a href="#rising-card">레포</a>
+      <a href="#keywords-card">키워드</a>
+      <a href="#reads-card">읽을거리</a>
+    </nav>
+    <button class="btn icon" id="theme-btn" type="button" aria-label="테마 전환" title="라이트/다크 전환">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+    <a class="btn" href="https://github.com/jihoo12/trends" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span class="label">GitHub</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span><span id="meta">불러오는 중…</span></span>
+    <h1>개발자들은 요즘<br>뭘 보고 있을까?</h1>
+    <p>Hacker News, GitHub Trending, arXiv를 매일 아침 9시(KST)에 기록해서, 지금 뜨는 것과 어제와 달라진 것을 보여줘요.</p>
+    <div class="sources">
+      <span class="src hn">Hacker News 상위 30</span>
+      <span class="src gh">GitHub Trending 일간·주간</span>
+      <span class="src arxiv">arXiv cs.AI · cs.LG · cs.CL</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
   <div id="notices"></div>
   <section class="tiles" id="tiles"></section>
   <section class="grid">
-    <div class="card span-2">
-      <h2>급상승 레포 TOP 10</h2>
-      <p class="sub" id="rising-sub"></p>
+    <div class="card span-2" id="rising-card">
+      <div class="card-head"><div>
+        <h2>급상승 레포 TOP 10</h2>
+        <p class="sub" id="rising-sub"></p>
+      </div><span class="src gh">GitHub</span></div>
       <div id="rising"></div>
     </div>
     <div class="card span-2">
-      <h2>레포 ★ 추이</h2>
-      <p class="sub">급상승 상위 5개 레포의 누적 스타 수. 레포마다 축 범위가 달라요 (트렌딩에 오른 날만 기록돼요)</p>
+      <div class="card-head"><div>
+        <h2>레포 ★ 추이</h2>
+        <p class="sub">급상승 상위 5개 레포의 누적 스타 수. 레포마다 축 범위가 달라요 (트렌딩에 오른 날만 기록돼요)</p>
+      </div><span class="src gh">GitHub</span></div>
       <div id="stars"></div>
     </div>
-    <div class="card span-2">
-      <h2>키워드 추이</h2>
-      <p class="sub">제목·설명에 나온 단어 빈도. 오늘 많이 나온 순서이고, Δ는 지난 7일 평균과 비교한 값이에요</p>
+    <div class="card span-2" id="keywords-card">
+      <div class="card-head"><div>
+        <h2>키워드 추이</h2>
+        <p class="sub">제목·설명에 나온 단어 빈도. 오늘 많이 나온 순서이고, Δ는 지난 7일 평균과 비교한 값이에요</p>
+      </div></div>
       <div class="tabs" role="tablist" id="kw-tabs">
         <button role="tab" data-src="hn" aria-selected="true">Hacker News</button>
         <button role="tab" data-src="github" aria-selected="false">GitHub</button>
@@ -156,22 +258,46 @@
       <div id="keywords"></div>
     </div>
     <div class="card">
-      <h2>새로 등장한 레포</h2>
-      <p class="sub" id="new-sub"></p>
+      <div class="card-head"><div>
+        <h2>새로 등장한 레포</h2>
+        <p class="sub" id="new-sub"></p>
+      </div><span class="src gh">GitHub</span></div>
       <div id="new-repos"></div>
     </div>
     <div class="card">
-      <h2>트렌딩에서 빠진 레포</h2>
-      <p class="sub" id="gone-sub"></p>
+      <div class="card-head"><div>
+        <h2>트렌딩에서 빠진 레포</h2>
+        <p class="sub" id="gone-sub"></p>
+      </div><span class="src gh">GitHub</span></div>
       <div id="gone-repos"></div>
     </div>
-    <div class="card span-2">
-      <h2>오늘의 HN 상위 글</h2>
-      <p class="sub" id="hn-sub"></p>
+    <div class="card" id="reads-card">
+      <div class="card-head"><div>
+        <h2>오늘의 HN 상위 글</h2>
+        <p class="sub" id="hn-sub"></p>
+      </div><span class="src hn">HN</span></div>
       <div id="hn-top"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div>
+        <h2>새로 나온 arXiv 논문</h2>
+        <p class="sub" id="arxiv-sub"></p>
+      </div><span class="src arxiv">arXiv</span></div>
+      <div id="arxiv-list"></div>
     </div>
   </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>매일 09:00 KST에 GitHub Actions로 자동 수집 · 데이터 출처 Hacker News, GitHub, arXiv</span>
+    <nav>
+      <a href="https://github.com/jihoo12/trends" target="_blank" rel="noopener">소스 코드</a>
+      <a href="https://github.com/jihoo12/trends/tree/main/data" target="_blank" rel="noopener">원본 데이터</a>
+      <a href="https://github.com/jihoo12/trendmcp" target="_blank" rel="noopener">Powered by trendmcp</a>
+    </nav>
+  </div>
+</footer>
 <div id="tip" role="tooltip"></div>
 <script src="history.js"></script>
 <script>
@@ -198,8 +324,17 @@ function showTip(e, html) {
 }
 const hideTip = () => (tip.style.display = "none");
 
+// ---------- theme toggle ----------
+$("theme-btn").addEventListener("click", () => {
+  const dark = getComputedStyle(document.documentElement).colorScheme === "dark";
+  const next = dark ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch {}
+});
+
 if (!SNAPS.length) {
   $("notices").innerHTML = `<div class="notice">아직 수집된 데이터가 없어요. <code>npm run collect</code>를 먼저 실행하세요.</div>`;
+  $("meta").textContent = "데이터 없음";
   throw new Error("no data");
 }
 
@@ -211,7 +346,7 @@ const reposOf = (s) => {
   return m;
 };
 
-$("meta").textContent = `${SNAPS[0].date} ~ ${latest.date} · 스냅샷 ${SNAPS.length}개 · 마지막 수집 ${new Date(latest.collectedAt).toLocaleString("ko-KR")}`;
+$("meta").textContent = `마지막 수집 ${new Date(latest.collectedAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" })} · ${SNAPS.length}일째 기록 중`;
 
 const notices = [];
 if (SNAPS.length < 2) notices.push("스냅샷이 아직 하루치뿐이라 추이 대신 GitHub 주간 수치로 보여줘요. 매일 수집하면 직접 관측한 변화로 바뀌어요.");
@@ -397,7 +532,7 @@ const seenBefore = new Set(SNAPS.slice(0, -1).flatMap((s) => [...reposOf(s).keys
 const newRepos = [...latestRepos.values()].filter((r) => !seenBefore.has(r.name)).sort((a, b) => b.starsInPeriod - a.starsInPeriod);
 const goneRepos = prev ? [...reposOf(prev).values()].filter((r) => !latestRepos.has(r.name)) : [];
 const repoList = (rows, badge) => rows.length
-  ? `<ul class="list">${rows.slice(0, 10).map((r) => `<li><span><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><span class="desc">${esc(r.description || "")}</span></span><span class="badge">${badge(r)}</span></li>`).join("")}</ul>`
+  ? `<ul class="list">${rows.slice(0, 10).map((r) => `<li><span class="li-main"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>${r.language ? `<span class="pill">${esc(r.language)}</span>` : ""}<span class="desc">${esc(r.description || "")}</span></span><span class="badge">${badge(r)}</span></li>`).join("")}</ul>`
   : `<div class="empty">없음</div>`;
 $("new-sub").textContent = SNAPS.length > 1 ? `이전 스냅샷에 한 번도 없던 레포 (${newRepos.length}개)` : "첫 스냅샷이라 지금 있는 레포가 모두 새로 등장한 것으로 표시돼요";
 $("new-repos").innerHTML = repoList(newRepos, (r) => `★ ${fmt(r.stars)}`);
@@ -408,7 +543,13 @@ $("gone-repos").innerHTML = prev ? repoList(goneRepos, (r) => `★ ${fmt(r.stars
 const prevHn = new Set((prev?.hn ?? []).map((h) => h.id));
 const hnTop = (latest.hn ?? []).slice().sort((a, b) => b.points - a.points).slice(0, 10);
 $("hn-sub").textContent = `${latest.date} 수집 시점의 프론트 페이지, 점수 순`;
-$("hn-top").innerHTML = hnTop.length ? `<ul class="list">${hnTop.map((h) => `<li><span><a class="repo-name" href="${esc(h.url || h.hnUrl)}" target="_blank" rel="noopener">${esc(h.title)}</a>${prev && !prevHn.has(h.id) ? ' <span class="badge">· 신규</span>' : ""}</span><a class="badge" href="${esc(h.hnUrl)}" target="_blank" rel="noopener">${h.points}점 · 댓글 ${h.comments}</a></li>`).join("")}</ul>` : `<div class="empty">없음</div>`;
+const domain = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+$("hn-top").innerHTML = hnTop.length ? `<ul class="list ranked">${hnTop.map((h) => `<li><span class="li-main"><a class="repo-name" href="${esc(h.url || h.hnUrl)}" target="_blank" rel="noopener">${esc(h.title)}</a>${prev && !prevHn.has(h.id) ? '<span class="pill">신규</span>' : ""}<span class="desc">${esc(domain(h.url) || "news.ycombinator.com")} · <a href="${esc(h.hnUrl)}" target="_blank" rel="noopener">${h.points}점 · 댓글 ${h.comments}</a></span></span></li>`).join("")}</ul>` : `<div class="empty">없음</div>`;
+
+// ---------- arXiv ----------
+const arxivTop = (latest.arxiv ?? []).slice(0, 10);
+$("arxiv-sub").textContent = "cs.AI · cs.LG · cs.CL 최신 제출 순";
+$("arxiv-list").innerHTML = arxivTop.length ? `<ul class="list ranked">${arxivTop.map((p) => `<li><span class="li-main"><a class="repo-name" href="${esc(p.absUrl)}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="desc">${esc(p.primaryCategory)} · arXiv:${esc(p.id.replace(/v\d+$/, ""))}</span></span></li>`).join("")}</ul>` : `<div class="empty">없음</div>`;
 
 // ---------- tiles ----------
 const topHn = hnTop[0];
