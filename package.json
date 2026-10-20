@@ -1,0 +1,17 @@
+{
+  "name": "trend-history",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Daily snapshots of Hacker News, GitHub Trending and arXiv (via trendmcp) with a history dashboard",
+  "type": "module",
+  "scripts": {
+    "collect": "node src/collect.ts",
+    "build": "node src/build.ts"
+  },
+  "dependencies": {
+    "trendmcp": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=23.6"
+  }
+}
