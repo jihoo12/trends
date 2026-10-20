@@ -13,7 +13,9 @@ It reuses the source modules from [trendmcp](https://github.com/jihoo12/trendmcp
 - **Star history**: small multiples for the top 5 rising repos, each on its own scale
 - **Keyword trends**: word frequency in HN titles, GitHub descriptions and arXiv titles, compared with the 7-day average
 - **New / dropped repos**: compared with the previous snapshot
-- **Today's top HN stories**
+- **Today's top HN stories** and **latest arXiv papers**
+
+The page is available in English and Korean (toggle in the top bar; defaults to your browser language).
 
 Anything trend-related needs at least two days of snapshots.
 

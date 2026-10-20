@@ -107,6 +107,7 @@
   .btn:hover { background: var(--surface-2); }
   .btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
   .btn.icon { width: 34px; padding: 0; justify-content: center; }
+  .btn.lang { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; }
   @media (max-width: 420px) { .btn .label { display: none; } .btn { width: 34px; padding: 0; justify-content: center; } }
 
   /* ---------- hero ---------- */
@@ -190,6 +191,7 @@
   footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
   footer a { color: var(--text-secondary); text-decoration: none; }
   footer a:hover { color: var(--text-primary); }
+  footer .counter { flex-basis: 100%; height: 50px; width: auto; max-width: 100%; opacity: 0.9; image-rendering: pixelated; }
 </style>
 </head>
 <body>
@@ -199,12 +201,13 @@
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M7 21l6-6 4 4 8-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11h6v6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Trend History
     </a>
-    <nav class="nav" aria-label="섹션">
-      <a href="#rising-card">레포</a>
-      <a href="#keywords-card">키워드</a>
-      <a href="#reads-card">읽을거리</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#rising-card" data-i18n="navRepos">레포</a>
+      <a href="#keywords-card" data-i18n="navKeywords">키워드</a>
+      <a href="#reads-card" data-i18n="navReads">읽을거리</a>
     </nav>
-    <button class="btn icon" id="theme-btn" type="button" aria-label="테마 전환" title="라이트/다크 전환">
+    <button class="btn icon lang" id="lang-btn" type="button">EN</button>
+    <button class="btn icon" id="theme-btn" type="button" data-i18n-aria="themeToggle" aria-label="테마 전환" title="라이트/다크 전환">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
     </button>
     <a class="btn" href="https://github.com/jihoo12/trends" target="_blank" rel="noopener">
@@ -216,12 +219,12 @@
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow"><span class="pulse"></span><span id="meta">불러오는 중…</span></span>
-    <h1>개발자들은 요즘<br>뭘 보고 있을까?</h1>
-    <p>Hacker News, GitHub Trending, arXiv를 매일 아침 9시(KST)에 기록해서, 지금 뜨는 것과 어제와 달라진 것을 보여줘요.</p>
+    <span class="eyebrow"><span class="pulse"></span><span id="meta">…</span></span>
+    <h1 data-i18n-html="heroTitle">개발자들은 요즘<br>뭘 보고 있을까?</h1>
+    <p data-i18n="heroText">Hacker News, GitHub Trending, arXiv를 매일 아침 9시(KST)에 기록해서, 지금 뜨는 것과 어제와 달라진 것을 보여줘요.</p>
     <div class="sources">
-      <span class="src hn">Hacker News 상위 30</span>
-      <span class="src gh">GitHub Trending 일간·주간</span>
+      <span class="src hn" data-i18n="srcHn">Hacker News 상위 30</span>
+      <span class="src gh" data-i18n="srcGh">GitHub Trending 일간·주간</span>
       <span class="src arxiv">arXiv cs.AI · cs.LG · cs.CL</span>
     </div>
   </div>
@@ -233,22 +236,22 @@
   <section class="grid">
     <div class="card span-2" id="rising-card">
       <div class="card-head"><div>
-        <h2>급상승 레포 TOP 10</h2>
+        <h2 data-i18n="risingTitle">급상승 레포 TOP 10</h2>
         <p class="sub" id="rising-sub"></p>
       </div><span class="src gh">GitHub</span></div>
       <div id="rising"></div>
     </div>
     <div class="card span-2">
       <div class="card-head"><div>
-        <h2>레포 ★ 추이</h2>
-        <p class="sub">급상승 상위 5개 레포의 누적 스타 수. 레포마다 축 범위가 달라요 (트렌딩에 오른 날만 기록돼요)</p>
+        <h2 data-i18n="starsTitle">레포 ★ 추이</h2>
+        <p class="sub" data-i18n="starsSub">급상승 상위 5개 레포의 누적 스타 수. 레포마다 축 범위가 달라요 (트렌딩에 오른 날만 기록돼요)</p>
       </div><span class="src gh">GitHub</span></div>
       <div id="stars"></div>
     </div>
     <div class="card span-2" id="keywords-card">
       <div class="card-head"><div>
-        <h2>키워드 추이</h2>
-        <p class="sub">제목·설명에 나온 단어 빈도. 오늘 많이 나온 순서이고, Δ는 지난 7일 평균과 비교한 값이에요</p>
+        <h2 data-i18n="kwTitle">키워드 추이</h2>
+        <p class="sub" data-i18n="kwSub">제목·설명에 나온 단어 빈도. 오늘 많이 나온 순서이고, Δ는 지난 7일 평균과 비교한 값이에요</p>
       </div></div>
       <div class="tabs" role="tablist" id="kw-tabs">
         <button role="tab" data-src="hn" aria-selected="true">Hacker News</button>
@@ -259,28 +262,28 @@
     </div>
     <div class="card">
       <div class="card-head"><div>
-        <h2>새로 등장한 레포</h2>
+        <h2 data-i18n="newTitle">새로 등장한 레포</h2>
         <p class="sub" id="new-sub"></p>
       </div><span class="src gh">GitHub</span></div>
       <div id="new-repos"></div>
     </div>
     <div class="card">
       <div class="card-head"><div>
-        <h2>트렌딩에서 빠진 레포</h2>
+        <h2 data-i18n="goneTitle">트렌딩에서 빠진 레포</h2>
         <p class="sub" id="gone-sub"></p>
       </div><span class="src gh">GitHub</span></div>
       <div id="gone-repos"></div>
     </div>
     <div class="card" id="reads-card">
       <div class="card-head"><div>
-        <h2>오늘의 HN 상위 글</h2>
+        <h2 data-i18n="hnTitle">오늘의 HN 상위 글</h2>
         <p class="sub" id="hn-sub"></p>
       </div><span class="src hn">HN</span></div>
       <div id="hn-top"></div>
     </div>
     <div class="card">
       <div class="card-head"><div>
-        <h2>새로 나온 arXiv 논문</h2>
+        <h2 data-i18n="arxivTitle">새로 나온 arXiv 논문</h2>
         <p class="sub" id="arxiv-sub"></p>
       </div><span class="src arxiv">arXiv</span></div>
       <div id="arxiv-list"></div>
@@ -290,12 +293,13 @@
 
 <footer>
   <div class="wrap">
-    <span>매일 09:00 KST에 GitHub Actions로 자동 수집 · 데이터 출처 Hacker News, GitHub, arXiv</span>
+    <span data-i18n="footerText">매일 09:00 KST에 GitHub Actions로 자동 수집 · 데이터 출처 Hacker News, GitHub, arXiv</span>
     <nav>
-      <a href="https://github.com/jihoo12/trends" target="_blank" rel="noopener">소스 코드</a>
-      <a href="https://github.com/jihoo12/trends/tree/main/data" target="_blank" rel="noopener">원본 데이터</a>
+      <a href="https://github.com/jihoo12/trends" target="_blank" rel="noopener" data-i18n="footerSource">소스 코드</a>
+      <a href="https://github.com/jihoo12/trends/tree/main/data" target="_blank" rel="noopener" data-i18n="footerData">원본 데이터</a>
       <a href="https://github.com/jihoo12/trendmcp" target="_blank" rel="noopener">Powered by trendmcp</a>
     </nav>
+    <img class="counter" src="https://count.getloli.com/@jihoo12-trends?theme=miku&amp;padding=7&amp;offset=0&amp;align=top&amp;scale=1&amp;pixelated=1&amp;darkmode=auto" alt="visitor counter" height="50" decoding="async">
   </div>
 </footer>
 <div id="tip" role="tooltip"></div>
@@ -309,6 +313,106 @@ const fmt = (n) => Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(n >= 1e5 ? 0 : 1) + "K
 const signed = (n) => (n > 0 ? "+" : n < 0 ? "−" : "±") + fmt(Math.abs(n));
 const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
 const shortDate = (d) => d.slice(5).replace("-", "/");
+
+// ---------- i18n ----------
+const STR = {
+  ko: {
+    navRepos: "레포", navKeywords: "키워드", navReads: "읽을거리",
+    themeToggle: "라이트/다크 전환", langToggle: "Switch to English", langBtn: "EN",
+    heroTitle: "개발자들은 요즘<br>뭘 보고 있을까?",
+    heroText: "Hacker News, GitHub Trending, arXiv를 매일 아침 9시(KST)에 기록해서, 지금 뜨는 것과 어제와 달라진 것을 보여줘요.",
+    srcHn: "Hacker News 상위 30", srcGh: "GitHub Trending 일간·주간",
+    risingTitle: "급상승 레포 TOP 10",
+    risingSubHistory: "최근 7일 동안 늘어난 스타 수. 관측 기록이 없는 레포는 GitHub 주간 수치를 썼어요",
+    risingSubWeekly: "GitHub 주간 트렌딩 기준, 이번 주에 늘어난 스타 수",
+    risingAria: "급상승 레포 막대 그래프",
+    basisObserved: (d, n) => `${shortDate(d)} 이후 관측 (${n}일)`, basisWeekly: "GitHub 주간 수치",
+    starsTitle: "레포 ★ 추이",
+    starsSub: "급상승 상위 5개 레포의 누적 스타 수. 레포마다 축 범위가 달라요 (트렌딩에 오른 날만 기록돼요)",
+    starsEmpty: "2일 이상 수집하면 여기에 추이 그래프가 나와요", starsAria: (n) => `${n} 스타 추이`,
+    kwTitle: "키워드 추이",
+    kwSub: "제목·설명에 나온 단어 빈도. 오늘 많이 나온 순서이고, Δ는 지난 7일 평균과 비교한 값이에요",
+    kwEmpty: "오늘 두 번 이상 나온 키워드가 없어요",
+    kwCols: ["키워드", "오늘", "Δ 7일 평균", "추이"], kwNew: "신규",
+    newTitle: "새로 등장한 레포",
+    newSub: (n) => `이전 스냅샷에 한 번도 없던 레포 (${n}개)`,
+    newSubFirst: "첫 스냅샷이라 지금 있는 레포가 모두 새로 등장한 것으로 표시돼요",
+    goneTitle: "트렌딩에서 빠진 레포",
+    goneSub: (d, n) => `${d}에는 있었지만 오늘은 없는 레포 (${n}개)`,
+    goneSubFirst: "비교할 이전 스냅샷이 아직 없어요", goneEmptyFirst: "내일부터 표시돼요",
+    hnTitle: "오늘의 HN 상위 글", hnSub: (d) => `${d} 수집 시점의 프론트 페이지, 점수 순`,
+    hnStats: (p, c) => `${p}점 · 댓글 ${c}`, newBadge: "신규",
+    arxivTitle: "새로 나온 arXiv 논문", arxivSub: "cs.AI · cs.LG · cs.CL 최신 제출 순",
+    none: "없음", noData: "데이터 없음",
+    noDataNotice: "아직 수집된 데이터가 없어요. <code>npm run collect</code>를 먼저 실행하세요.",
+    oneDayNotice: "스냅샷이 아직 하루치뿐이라 추이 대신 GitHub 주간 수치로 보여줘요. 매일 수집하면 직접 관측한 변화로 바뀌어요.",
+    errorNotice: (list) => `마지막 수집에서 일부 소스가 실패했어요: ${list}`,
+    meta: (when, n) => `마지막 수집 ${when} · ${n}일째 기록 중`,
+    tileDays: "수집한 날", tileDaysValue: (n) => `${n}일`, tileDaysHint: (d) => `${d}부터`,
+    tileRepos: "추적 중인 레포", tileReposHint: "한 번이라도 트렌딩에 오른 레포",
+    tileNew: "오늘 새로 등장한 레포", tileNewHint: "어제와 비교", tileNewHintFirst: "내일부터 비교할 수 있어요",
+    tileHn: "HN 최고 점수", tileHnValue: (p) => `${p}점`,
+    tipNotTrending: "트렌딩 아님",
+    footerText: "매일 09:00 KST에 GitHub Actions로 자동 수집 · 데이터 출처 Hacker News, GitHub, arXiv",
+    footerSource: "소스 코드", footerData: "원본 데이터",
+  },
+  en: {
+    navRepos: "Repos", navKeywords: "Keywords", navReads: "Reads",
+    themeToggle: "Toggle light/dark", langToggle: "한국어로 보기", langBtn: "한",
+    heroTitle: "What are developers<br>looking at lately?",
+    heroText: "Hacker News, GitHub Trending and arXiv, recorded every morning at 09:00 KST — what's hot right now, and what changed since yesterday.",
+    srcHn: "Hacker News top 30", srcGh: "GitHub Trending daily · weekly",
+    risingTitle: "Top 10 rising repos",
+    risingSubHistory: "Stars gained over the last 7 days. Repos without observed history use GitHub's weekly number",
+    risingSubWeekly: "Stars gained this week, per GitHub's weekly trending",
+    risingAria: "Bar chart of rising repos",
+    basisObserved: (d, n) => `observed since ${shortDate(d)} (${n} day${n === 1 ? "" : "s"})`, basisWeekly: "GitHub weekly number",
+    starsTitle: "Star history",
+    starsSub: "Total stars of the top 5 rising repos. Each chart has its own scale (only days on trending are recorded)",
+    starsEmpty: "Star history appears here after two or more days of snapshots", starsAria: (n) => `${n} star history`,
+    kwTitle: "Keyword trends",
+    kwSub: "Word frequency in titles and descriptions, most frequent today first. Δ compares with the 7-day average",
+    kwEmpty: "No keyword appeared more than once today",
+    kwCols: ["Keyword", "Today", "Δ 7-day avg", "Trend"], kwNew: "new",
+    newTitle: "New on trending",
+    newSub: (n) => `Repos never seen in an earlier snapshot (${n})`,
+    newSubFirst: "This is the first snapshot, so every repo shows up as new",
+    goneTitle: "Dropped off trending",
+    goneSub: (d, n) => `On trending on ${d} but not today (${n})`,
+    goneSubFirst: "No earlier snapshot to compare with yet", goneEmptyFirst: "Shows up from tomorrow",
+    hnTitle: "Today's top HN stories", hnSub: (d) => `Front page as of the ${d} snapshot, by points`,
+    hnStats: (p, c) => `${p} points · ${c} comments`, newBadge: "new",
+    arxivTitle: "Latest arXiv papers", arxivSub: "cs.AI · cs.LG · cs.CL, newest submissions first",
+    none: "None", noData: "No data",
+    noDataNotice: "No snapshots yet. Run <code>npm run collect</code> first.",
+    oneDayNotice: "Only one day of snapshots so far, so GitHub's weekly numbers stand in for trends. Daily snapshots will replace them with observed changes.",
+    errorNotice: (list) => `Some sources failed in the last run: ${list}`,
+    meta: (when, n) => `Last updated ${when} KST · day ${n}`,
+    tileDays: "Days recorded", tileDaysValue: (n) => `${n}`, tileDaysHint: (d) => `since ${d}`,
+    tileRepos: "Repos tracked", tileReposHint: "Repos that have been on trending at least once",
+    tileNew: "New on trending today", tileNewHint: "compared with yesterday", tileNewHintFirst: "comparison starts tomorrow",
+    tileHn: "Top HN score", tileHnValue: (p) => `${p} pts`,
+    tipNotTrending: "not on trending",
+    footerText: "Collected daily at 09:00 KST by GitHub Actions · Data from Hacker News, GitHub, arXiv",
+    footerSource: "Source", footerData: "Raw data",
+  },
+};
+let lang = "ko";
+try { lang = localStorage.getItem("lang") || (navigator.language?.toLowerCase().startsWith("ko") ? "ko" : "en"); } catch {}
+if (!STR[lang]) lang = "ko";
+const T = () => STR[lang];
+
+function applyStatic() {
+  const t = T();
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach((el) => (el.textContent = t[el.dataset.i18n]));
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => (el.innerHTML = t[el.dataset.i18nHtml]));
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t[el.dataset.i18nAria]); el.title = t[el.dataset.i18nAria]; });
+  const lb = $("lang-btn");
+  lb.textContent = t.langBtn;
+  lb.setAttribute("aria-label", t.langToggle);
+  lb.title = t.langToggle;
+}
 
 // ---------- tooltip ----------
 const tip = $("tip");
@@ -324,70 +428,66 @@ function showTip(e, html) {
 }
 const hideTip = () => (tip.style.display = "none");
 
-// ---------- theme toggle ----------
+// ---------- theme / language toggles ----------
 $("theme-btn").addEventListener("click", () => {
   const dark = getComputedStyle(document.documentElement).colorScheme === "dark";
   const next = dark ? "light" : "dark";
   document.documentElement.dataset.theme = next;
   try { localStorage.setItem("theme", next); } catch {}
 });
+$("lang-btn").addEventListener("click", () => {
+  lang = lang === "ko" ? "en" : "ko";
+  try { localStorage.setItem("lang", lang); } catch {}
+  applyStatic();
+  render();
+});
 
-if (!SNAPS.length) {
-  $("notices").innerHTML = `<div class="notice">아직 수집된 데이터가 없어요. <code>npm run collect</code>를 먼저 실행하세요.</div>`;
-  $("meta").textContent = "데이터 없음";
-  throw new Error("no data");
-}
-
-const latest = SNAPS.at(-1);
-const prev = SNAPS.length > 1 ? SNAPS.at(-2) : null;
+// ---------- data (language-independent) ----------
 const reposOf = (s) => {
   const m = new Map();
   for (const r of [...(s.github?.weekly ?? []), ...(s.github?.daily ?? [])]) m.set(r.name, { ...m.get(r.name), ...r });
   return m;
 };
+const latest = SNAPS.at(-1);
+const prev = SNAPS.length > 1 ? SNAPS.at(-2) : null;
 
-$("meta").textContent = `마지막 수집 ${new Date(latest.collectedAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" })} · ${SNAPS.length}일째 기록 중`;
-
-const notices = [];
-if (SNAPS.length < 2) notices.push("스냅샷이 아직 하루치뿐이라 추이 대신 GitHub 주간 수치로 보여줘요. 매일 수집하면 직접 관측한 변화로 바뀌어요.");
-const errs = Object.entries(latest.errors ?? {});
-if (errs.length) notices.push(`마지막 수집에서 일부 소스가 실패했어요: ${errs.map(([k, v]) => `${esc(k)} (${esc(v)})`).join(", ")}`);
-$("notices").innerHTML = notices.map((n) => `<div class="notice">${n}</div>`).join("");
-
-// ---------- star history per repo ----------
 const history = new Map(); // name -> [{date, stars}]
 for (const s of SNAPS) for (const [name, r] of reposOf(s)) {
   if (!history.has(name)) history.set(name, []);
   history.get(name).push({ date: s.date, stars: r.stars });
 }
 
-// ---------- rising repos ----------
 // Observed growth over the last 7 days when we have ≥2 sightings of the repo;
 // otherwise fall back to GitHub's own "stars this week".
-const latestRepos = reposOf(latest);
+const latestRepos = latest ? reposOf(latest) : new Map();
 const rising = [...latestRepos.values()].map((r) => {
   const pts = history.get(r.name).filter((p) => dayDiff(p.date, latest.date) <= 7);
   const first = pts[0];
   if (pts.length >= 2 && first.date !== latest.date) {
-    return { ...r, growth: r.stars - first.stars, basis: `${shortDate(first.date)} 이후 관측 (${dayDiff(first.date, latest.date)}일)` };
+    return { ...r, growth: r.stars - first.stars, basis: { since: first.date, days: dayDiff(first.date, latest.date) } };
   }
   const weekly = latest.github.weekly?.find((w) => w.name === r.name);
-  if (weekly) return { ...r, growth: weekly.starsInPeriod, basis: "GitHub 주간 수치" };
+  if (weekly) return { ...r, growth: weekly.starsInPeriod, basis: null };
   return null; // only in today's daily list and never seen before: no honest weekly number
 }).filter(Boolean).sort((a, b) => b.growth - a.growth).slice(0, 10);
 
-$("rising-sub").textContent = SNAPS.length >= 2
-  ? "최근 7일 동안 늘어난 스타 수. 관측 기록이 없는 레포는 GitHub 주간 수치를 썼어요"
-  : "GitHub 주간 트렌딩 기준, 이번 주에 늘어난 스타 수";
+const seenBefore = new Set(SNAPS.slice(0, -1).flatMap((s) => [...reposOf(s).keys()]));
+const newRepos = [...latestRepos.values()].filter((r) => !seenBefore.has(r.name)).sort((a, b) => b.starsInPeriod - a.starsInPeriod);
+const goneRepos = prev ? [...reposOf(prev).values()].filter((r) => !latestRepos.has(r.name)) : [];
+const prevHn = new Set((prev?.hn ?? []).map((h) => h.id));
+const hnTop = (latest?.hn ?? []).slice().sort((a, b) => b.points - a.points).slice(0, 10);
+const arxivTop = (latest?.arxiv ?? []).slice(0, 10);
 
+// ---------- charts ----------
 function barChart(el, rows) {
-  if (!rows.length) { el.innerHTML = `<div class="empty">데이터 없음</div>`; return; }
+  const t = T();
+  if (!rows.length) { el.innerHTML = `<div class="empty">${t.noData}</div>`; return; }
   const W = Math.max(280, el.clientWidth), labelW = Math.min(300, Math.round(W * 0.42)), valueW = 64, rowH = 30, barH = 18;
   const maxChars = Math.floor((labelW - 12) / 7);
   const max = Math.max(...rows.map((r) => r.growth), 1);
   const plotW = W - labelW - valueW;
   const H = rows.length * rowH;
-  const parts = [`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="급상승 레포 막대 그래프">`];
+  const parts = [`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${t.risingAria}">`];
   parts.push(`<line class="axis" x1="${labelW}" x2="${labelW}" y1="0" y2="${H}"/>`);
   rows.forEach((r, i) => {
     const y = i * rowH + (rowH - barH) / 2;
@@ -403,39 +503,39 @@ function barChart(el, rows) {
   el.innerHTML = parts.join("");
   el.querySelectorAll(".hit").forEach((h) => {
     const r = rows[+h.dataset.i];
-    h.addEventListener("mousemove", (e) => showTip(e, `<b>${esc(r.name)}</b>${esc(r.description || "")}<br><span class="muted">★ ${fmt(r.stars)} · ${esc(r.language || "—")}<br>+${fmt(r.growth)} · ${esc(r.basis)}</span>`));
+    const basis = r.basis ? t.basisObserved(r.basis.since, r.basis.days) : t.basisWeekly;
+    h.addEventListener("mousemove", (e) => showTip(e, `<b>${esc(r.name)}</b>${esc(r.description || "")}<br><span class="muted">★ ${fmt(r.stars)} · ${esc(r.language || "—")}<br>+${fmt(r.growth)} · ${esc(basis)}</span>`));
     h.addEventListener("mouseleave", hideTip);
     h.addEventListener("click", () => open(r.url, "_blank", "noopener"));
     h.style.cursor = "pointer";
   });
 }
-const drawRising = () => barChart($("rising"), rising);
-drawRising();
 
-// ---------- star history: small multiples (each repo on its own scale) ----------
+// star history: small multiples (each repo on its own scale)
 function starMultiples(el, series) {
+  const t = T();
   const dates = SNAPS.map((s) => s.date);
-  if (dates.length < 2) { el.innerHTML = `<div class="empty">2일 이상 수집하면 여기에 추이 그래프가 나와요</div>`; return; }
+  if (dates.length < 2) { el.innerHTML = `<div class="empty">${t.starsEmpty}</div>`; return; }
   const cols = Math.max(1, Math.floor((el.clientWidth + 12) / (180 + 12)));
-  const W = Math.floor((el.clientWidth - 12 * (cols - 1)) / cols), H = 110, L = 6, R = 6, T = 10, B = 22;
+  const W = Math.floor((el.clientWidth - 12 * (cols - 1)) / cols), H = 110, L = 6, R = 6, T0 = 10, B = 22;
   const x = (d) => L + (dates.indexOf(d) / (dates.length - 1)) * (W - L - R);
   el.innerHTML = `<div class="multiples">${series.map((s, i) => {
     const vals = s.points.map((p) => p.stars);
     let lo = Math.min(...vals), hi = Math.max(...vals);
     if (lo === hi) { lo -= 1; hi += 1; }
-    const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+    const y = (v) => T0 + (1 - (v - lo) / (hi - lo)) * (H - T0 - B);
     const path = s.points.map((p, j) => `${j ? "L" : "M"}${x(p.date).toFixed(1)},${y(p.stars).toFixed(1)}`).join("");
     const area = `${path}L${x(s.points.at(-1).date).toFixed(1)},${H - B}L${x(s.points[0].date).toFixed(1)},${H - B}Z`;
     const last = s.points.at(-1), first = s.points[0];
     return `<figure class="mini" data-i="${i}">
       <figcaption><span class="repo-name">${esc(s.name.split("/")[1] ?? s.name)}</span><span class="badge">★ ${fmt(last.stars)} <span class="up">${signed(last.stars - first.stars)}</span></span></figcaption>
-      <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(s.name)} 스타 추이">
+      <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(t.starsAria(s.name))}">
         <line class="axis" x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}"/>
         <path d="${area}" fill="var(--series-1)" fill-opacity="0.1"/>
         <path d="${path}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
         <circle cx="${x(last.date)}" cy="${y(last.stars)}" r="4" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"/>
         <text x="${L}" y="${H - 6}">${shortDate(dates[0])}</text><text x="${W - R}" y="${H - 6}" text-anchor="end">${shortDate(dates.at(-1))}</text>
-        <line class="xh axis" y1="${T}" y2="${H - B}" style="display:none;stroke:var(--text-muted)"/>
+        <line class="xh axis" y1="${T0}" y2="${H - B}" style="display:none;stroke:var(--text-muted)"/>
         <rect class="hit" x="0" y="0" width="${W}" height="${H}"/>
       </svg></figure>`;
   }).join("")}</div>`;
@@ -452,16 +552,8 @@ function starMultiples(el, series) {
     fig.querySelector(".hit").addEventListener("mouseleave", () => { hideTip(); xh.style.display = "none"; });
   });
 }
+const drawRising = () => barChart($("rising"), rising);
 const drawStars = () => starMultiples($("stars"), rising.slice(0, 5).map((r) => ({ name: r.name, points: history.get(r.name) })));
-drawStars();
-// charts are drawn at real pixel size, so redraw when the width changes
-let lastW = innerWidth, rt;
-addEventListener("resize", () => {
-  if (innerWidth === lastW) return;
-  lastW = innerWidth;
-  clearTimeout(rt);
-  rt = setTimeout(() => { drawRising(); drawStars(); }, 150);
-});
 
 // ---------- keywords ----------
 const STOP = new Set(`a an the and or but of to in on at by for with from into over under as is are was were be been being it its this that these those
@@ -480,13 +572,14 @@ const textsOf = {
   github: (s) => [...reposOf(s).values()].map((r) => `${r.name.split("/")[1].replace(/[-_]/g, " ")} ${r.description ?? ""}`),
   arxiv: (s) => (s.arxiv ?? []).map((p) => p.title),
 };
+const kwCache = {};
 function keywordCounts(src) {
   // counts per snapshot: a word counts once per item (story / repo / paper)
-  return SNAPS.map((s) => {
+  return (kwCache[src] ??= SNAPS.map((s) => {
     const m = new Map();
     for (const t of textsOf[src](s)) for (const w of new Set(tokens(t))) m.set(w, (m.get(w) ?? 0) + 1);
     return m;
-  });
+  }));
 }
 function sparkline(vals) {
   if (vals.length < 2) return `<span class="badge">—</span>`;
@@ -496,6 +589,7 @@ function sparkline(vals) {
   return `<svg viewBox="0 0 ${W} ${H}" style="width:120px;height:24px" aria-hidden="true"><polyline points="${pts.join(" ")}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${lx}" cy="${ly}" r="3" fill="var(--series-1)"/></svg>`;
 }
 function renderKeywords(src) {
+  const t = T();
   const counts = keywordCounts(src);
   const today = counts.at(-1);
   const past = counts.slice(-8, -1);
@@ -507,17 +601,19 @@ function renderKeywords(src) {
     })
     .sort((a, b) => b.n - a.n || a.w.localeCompare(b.w))
     .slice(0, 15);
-  if (!rows.length) { $("keywords").innerHTML = `<div class="empty">오늘 두 번 이상 나온 키워드가 없어요</div>`; return; }
-  $("keywords").innerHTML = `<table><thead><tr><th>키워드</th><th class="num">오늘</th><th class="num">Δ 7일 평균</th><th>추이</th></tr></thead><tbody>${rows.map((r) => {
+  if (!rows.length) { $("keywords").innerHTML = `<div class="empty">${t.kwEmpty}</div>`; return; }
+  const [c1, c2, c3, c4] = t.kwCols;
+  $("keywords").innerHTML = `<table><thead><tr><th>${c1}</th><th class="num">${c2}</th><th class="num">${c3}</th><th>${c4}</th></tr></thead><tbody>${rows.map((r) => {
     const delta = r.avg == null ? `<span class="badge">—</span>`
-      : r.isNew ? `<span class="up">▲ 신규</span>`
+      : r.isNew ? `<span class="up">▲ ${t.kwNew}</span>`
       : (() => { const d = r.n - r.avg; const cls = d > 0.05 ? "up" : d < -0.05 ? "down" : ""; return `<span class="${cls}">${d > 0.05 ? "▲" : d < -0.05 ? "▼" : "●"} ${d >= 0 ? "+" : "−"}${Math.abs(d).toFixed(1)}</span>`; })();
-    return `<tr><td>${esc(r.w)}</td><td class="num">${r.n}</td><td class="num">${delta}</td><td>${sparkline(r.series)}</td></tr>`;
+    return `<tr><td class="kw">${esc(r.w)}</td><td class="num">${r.n}</td><td class="num">${delta}</td><td>${sparkline(r.series)}</td></tr>`;
   }).join("")}</tbody></table>`;
 }
 const kwTabs = $("kw-tabs");
 let kwSrc = "hn";
 try { kwSrc = localStorage.getItem("kwSrc") || "hn"; } catch {}
+if (!textsOf[kwSrc]) kwSrc = "hn";
 function selectTab(src) {
   kwSrc = src;
   kwTabs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.src === src)));
@@ -525,41 +621,69 @@ function selectTab(src) {
   renderKeywords(src);
 }
 kwTabs.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) selectTab(b.dataset.src); });
-selectTab(textsOf[kwSrc] ? kwSrc : "hn");
 
-// ---------- new / gone repos ----------
-const seenBefore = new Set(SNAPS.slice(0, -1).flatMap((s) => [...reposOf(s).keys()]));
-const newRepos = [...latestRepos.values()].filter((r) => !seenBefore.has(r.name)).sort((a, b) => b.starsInPeriod - a.starsInPeriod);
-const goneRepos = prev ? [...reposOf(prev).values()].filter((r) => !latestRepos.has(r.name)) : [];
-const repoList = (rows, badge) => rows.length
-  ? `<ul class="list">${rows.slice(0, 10).map((r) => `<li><span class="li-main"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>${r.language ? `<span class="pill">${esc(r.language)}</span>` : ""}<span class="desc">${esc(r.description || "")}</span></span><span class="badge">${badge(r)}</span></li>`).join("")}</ul>`
-  : `<div class="empty">없음</div>`;
-$("new-sub").textContent = SNAPS.length > 1 ? `이전 스냅샷에 한 번도 없던 레포 (${newRepos.length}개)` : "첫 스냅샷이라 지금 있는 레포가 모두 새로 등장한 것으로 표시돼요";
-$("new-repos").innerHTML = repoList(newRepos, (r) => `★ ${fmt(r.stars)}`);
-$("gone-sub").textContent = prev ? `${prev.date}에는 있었지만 오늘은 없는 레포 (${goneRepos.length}개)` : "비교할 이전 스냅샷이 아직 없어요";
-$("gone-repos").innerHTML = prev ? repoList(goneRepos, (r) => `★ ${fmt(r.stars)}`) : `<div class="empty">내일부터 표시돼요</div>`;
-
-// ---------- HN top ----------
-const prevHn = new Set((prev?.hn ?? []).map((h) => h.id));
-const hnTop = (latest.hn ?? []).slice().sort((a, b) => b.points - a.points).slice(0, 10);
-$("hn-sub").textContent = `${latest.date} 수집 시점의 프론트 페이지, 점수 순`;
+// ---------- render everything for the current language ----------
 const domain = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
-$("hn-top").innerHTML = hnTop.length ? `<ul class="list ranked">${hnTop.map((h) => `<li><span class="li-main"><a class="repo-name" href="${esc(h.url || h.hnUrl)}" target="_blank" rel="noopener">${esc(h.title)}</a>${prev && !prevHn.has(h.id) ? '<span class="pill">신규</span>' : ""}<span class="desc">${esc(domain(h.url) || "news.ycombinator.com")} · <a href="${esc(h.hnUrl)}" target="_blank" rel="noopener">${h.points}점 · 댓글 ${h.comments}</a></span></span></li>`).join("")}</ul>` : `<div class="empty">없음</div>`;
+function repoList(rows, badge) {
+  return rows.length
+    ? `<ul class="list">${rows.slice(0, 10).map((r) => `<li><span class="li-main"><a class="repo-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>${r.language ? `<span class="pill">${esc(r.language)}</span>` : ""}<span class="desc">${esc(r.description || "")}</span></span><span class="badge">${badge(r)}</span></li>`).join("")}</ul>`
+    : `<div class="empty">${T().none}</div>`;
+}
 
-// ---------- arXiv ----------
-const arxivTop = (latest.arxiv ?? []).slice(0, 10);
-$("arxiv-sub").textContent = "cs.AI · cs.LG · cs.CL 최신 제출 순";
-$("arxiv-list").innerHTML = arxivTop.length ? `<ul class="list ranked">${arxivTop.map((p) => `<li><span class="li-main"><a class="repo-name" href="${esc(p.absUrl)}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="desc">${esc(p.primaryCategory)} · arXiv:${esc(p.id.replace(/v\d+$/, ""))}</span></span></li>`).join("")}</ul>` : `<div class="empty">없음</div>`;
+function render() {
+  const t = T();
+  if (!SNAPS.length) {
+    $("notices").innerHTML = `<div class="notice">${t.noDataNotice}</div>`;
+    $("meta").textContent = t.noData;
+    return;
+  }
 
-// ---------- tiles ----------
-const topHn = hnTop[0];
-const tiles = [
-  { label: "수집한 날", value: `${SNAPS.length}일`, hint: `${SNAPS[0].date}부터` },
-  { label: "추적 중인 레포", value: fmt(history.size), hint: "한 번이라도 트렌딩에 오른 레포" },
-  { label: "오늘 새로 등장한 레포", value: SNAPS.length > 1 ? fmt(newRepos.length) : "—", hint: SNAPS.length > 1 ? `어제와 비교` : "내일부터 비교할 수 있어요" },
-  { label: "HN 최고 점수", value: topHn ? `${topHn.points}점` : "—", hint: topHn ? topHn.title : "" },
-];
-$("tiles").innerHTML = tiles.map((t) => `<div class="card tile"><div class="label">${t.label}</div><div class="value">${t.value}</div><div class="hint">${esc(t.hint)}</div></div>`).join("");
+  const when = new Date(latest.collectedAt).toLocaleString(lang === "ko" ? "ko-KR" : "en-US", { timeZone: "Asia/Seoul", month: lang === "ko" ? "long" : "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  $("meta").textContent = t.meta(when, SNAPS.length);
+
+  const notices = [];
+  if (SNAPS.length < 2) notices.push(t.oneDayNotice);
+  const errs = Object.entries(latest.errors ?? {});
+  if (errs.length) notices.push(t.errorNotice(errs.map(([k, v]) => `${esc(k)} (${esc(v)})`).join(", ")));
+  $("notices").innerHTML = notices.map((n) => `<div class="notice">${n}</div>`).join("");
+
+  const topHn = hnTop[0];
+  const tiles = [
+    { label: t.tileDays, value: t.tileDaysValue(SNAPS.length), hint: t.tileDaysHint(SNAPS[0].date) },
+    { label: t.tileRepos, value: fmt(history.size), hint: t.tileReposHint },
+    { label: t.tileNew, value: SNAPS.length > 1 ? fmt(newRepos.length) : "—", hint: SNAPS.length > 1 ? t.tileNewHint : t.tileNewHintFirst },
+    { label: t.tileHn, value: topHn ? t.tileHnValue(topHn.points) : "—", hint: topHn ? topHn.title : "" },
+  ];
+  $("tiles").innerHTML = tiles.map((x) => `<div class="card tile"><div class="label">${x.label}</div><div class="value">${x.value}</div><div class="hint">${esc(x.hint)}</div></div>`).join("");
+
+  $("rising-sub").textContent = SNAPS.length >= 2 ? t.risingSubHistory : t.risingSubWeekly;
+  drawRising();
+  drawStars();
+  selectTab(kwSrc);
+
+  $("new-sub").textContent = SNAPS.length > 1 ? t.newSub(newRepos.length) : t.newSubFirst;
+  $("new-repos").innerHTML = repoList(newRepos, (r) => `★ ${fmt(r.stars)}`);
+  $("gone-sub").textContent = prev ? t.goneSub(prev.date, goneRepos.length) : t.goneSubFirst;
+  $("gone-repos").innerHTML = prev ? repoList(goneRepos, (r) => `★ ${fmt(r.stars)}`) : `<div class="empty">${t.goneEmptyFirst}</div>`;
+
+  $("hn-sub").textContent = t.hnSub(latest.date);
+  $("hn-top").innerHTML = hnTop.length ? `<ul class="list ranked">${hnTop.map((h) => `<li><span class="li-main"><a class="repo-name" href="${esc(h.url || h.hnUrl)}" target="_blank" rel="noopener">${esc(h.title)}</a>${prev && !prevHn.has(h.id) ? `<span class="pill">${t.newBadge}</span>` : ""}<span class="desc">${esc(domain(h.url) || "news.ycombinator.com")} · <a href="${esc(h.hnUrl)}" target="_blank" rel="noopener">${t.hnStats(h.points, h.comments)}</a></span></span></li>`).join("")}</ul>` : `<div class="empty">${t.none}</div>`;
+
+  $("arxiv-sub").textContent = t.arxivSub;
+  $("arxiv-list").innerHTML = arxivTop.length ? `<ul class="list ranked">${arxivTop.map((p) => `<li><span class="li-main"><a class="repo-name" href="${esc(p.absUrl)}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="desc">${esc(p.primaryCategory)} · arXiv:${esc(p.id.replace(/v\d+$/, ""))}</span></span></li>`).join("")}</ul>` : `<div class="empty">${t.none}</div>`;
+}
+
+applyStatic();
+render();
+
+// charts are drawn at real pixel size, so redraw when the width changes
+let lastW = innerWidth, rt;
+addEventListener("resize", () => {
+  if (innerWidth === lastW || !SNAPS.length) return;
+  lastW = innerWidth;
+  clearTimeout(rt);
+  rt = setTimeout(() => { drawRising(); drawStars(); }, 150);
+});
 </script>
 </body>
 </html>
