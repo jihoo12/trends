@@ -25,7 +25,7 @@ Anything trend-related needs at least two days of snapshots.
 
 1. `npm run collect` saves a snapshot to `data/YYYY-MM-DD.json` (dates are in KST; re-running on the same day overwrites that day's file)
 2. The new snapshot is committed to `main`
-3. `npm run build` bundles the last 90 days into `web/history.js`, and `web/` is deployed to GitHub Pages
+3. `npm run build` turns the last 90 days into `web/history.js` — only what the page draws, precomputed, so it stays around 25–40 KB no matter how much history there is — and `web/` is deployed to GitHub Pages
 
 You can also trigger it manually with **Run workflow** in the Actions tab. Pushing changes under `web/` or `src/` redeploys the page without taking a new snapshot.
 GitHub's scheduled runs can start a few minutes to tens of minutes late.

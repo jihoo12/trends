@@ -312,12 +312,13 @@
 <script src="history.js"></script>
 <script>
 "use strict";
-const SNAPS = (window.TREND_HISTORY?.snapshots ?? []).slice().sort((a, b) => a.date.localeCompare(b.date));
+// Everything here is precomputed by src/build.ts; the page only renders it.
+const D = window.TREND_HISTORY ?? { dates: [] };
+const DATES = D.dates ?? [];
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const fmt = (n) => Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(n >= 1e5 ? 0 : 1) + "K" : n.toLocaleString("en-US");
 const signed = (n) => (n > 0 ? "+" : n < 0 ? "−" : "±") + fmt(Math.abs(n));
-const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
 const shortDate = (d) => d.slice(5).replace("-", "/");
 
 // ---------- i18n ----------
@@ -449,44 +450,15 @@ $("lang-btn").addEventListener("click", () => {
 });
 
 // ---------- data (language-independent) ----------
-const reposOf = (s) => {
-  const m = new Map();
-  for (const r of [...(s.github?.weekly ?? []), ...(s.github?.daily ?? [])]) m.set(r.name, { ...m.get(r.name), ...r });
-  return m;
-};
-const latest = SNAPS.at(-1);
-const prev = SNAPS.length > 1 ? SNAPS.at(-2) : null;
-
-const history = new Map(); // name -> [{date, stars}]
-for (const s of SNAPS) for (const [name, r] of reposOf(s)) {
-  if (!history.has(name)) history.set(name, []);
-  history.get(name).push({ date: s.date, stars: r.stars });
-}
-
-// Observed growth over the last 7 days when we have ≥2 sightings of the repo;
-// otherwise fall back to GitHub's own "stars this week".
-const latestRepos = latest ? reposOf(latest) : new Map();
-const rising = [...latestRepos.values()].map((r) => {
-  const pts = history.get(r.name).filter((p) => dayDiff(p.date, latest.date) <= 7);
-  const first = pts[0];
-  if (pts.length >= 2 && first.date !== latest.date) {
-    return { ...r, growth: r.stars - first.stars, basis: { since: first.date, days: dayDiff(first.date, latest.date) } };
-  }
-  const weekly = latest.github.weekly?.find((w) => w.name === r.name);
-  if (weekly) return { ...r, growth: weekly.starsInPeriod, basis: null };
-  return null; // only in today's daily list and never seen before: no honest weekly number
-}).filter(Boolean).sort((a, b) => b.growth - a.growth).slice(0, 10);
-
-const seenBefore = new Set(SNAPS.slice(0, -1).flatMap((s) => [...reposOf(s).keys()]));
-const newRepos = [...latestRepos.values()].filter((r) => !seenBefore.has(r.name)).sort((a, b) => b.starsInPeriod - a.starsInPeriod);
-const goneRepos = prev ? [...reposOf(prev).values()].filter((r) => !latestRepos.has(r.name)) : [];
-const prevHn = new Set((prev?.hn ?? []).map((h) => h.id));
+const latest = D.latest;
+const prev = D.prev;
+const rising = D.rising ?? [];
+const prevHn = new Set(prev?.hnIds ?? []);
 const hnTop = (latest?.hn ?? []).slice().sort((a, b) => b.points - a.points).slice(0, 10);
 const arxivAll = latest?.arxiv ?? [];
-const arxivCats = [...arxivAll.reduce((m, p) => m.set(p.primaryCategory, (m.get(p.primaryCategory) ?? 0) + 1), new Map())]
-  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const arxivCats = latest?.arxivCounts ?? [];
 let arxivCat = null; // null = all
-const absUrl = (p) => p.absUrl ?? `https://arxiv.org/abs/${p.id}`;
+const absUrl = (p) => `https://arxiv.org/abs/${p.id}`;
 
 // ---------- charts ----------
 function barChart(el, rows) {
@@ -524,7 +496,7 @@ function barChart(el, rows) {
 // star history: small multiples (each repo on its own scale)
 function starMultiples(el, series) {
   const t = T();
-  const dates = SNAPS.map((s) => s.date);
+  const dates = DATES;
   if (dates.length < 2) { el.innerHTML = `<div class="empty">${t.starsEmpty}</div>`; return; }
   const cols = Math.max(1, Math.floor((el.clientWidth + 12) / (180 + 12)));
   const W = Math.floor((el.clientWidth - 12 * (cols - 1)) / cols), H = 110, L = 6, R = 6, T0 = 10, B = 22;
@@ -563,34 +535,9 @@ function starMultiples(el, series) {
   });
 }
 const drawRising = () => barChart($("rising"), rising);
-const drawStars = () => starMultiples($("stars"), rising.slice(0, 5).map((r) => ({ name: r.name, points: history.get(r.name) })));
+const drawStars = () => starMultiples($("stars"), rising.filter((r) => D.starHistory?.[r.name]).map((r) => ({ name: r.name, points: D.starHistory[r.name].map(([date, stars]) => ({ date, stars })) })));
 
 // ---------- keywords ----------
-const STOP = new Set(`a an the and or but of to in on at by for with from into over under as is are was were be been being it its this that these those
-i you he she we they me my our your their his her them us not no yes do does did done can could will would should may might must shall
-how what why when where who which whom than then there here so if about after before up down out off just only also more most very new
-via using use used based your via vs etc all any some one two three first can't don't it's i'm show hn ask tell launch yc
-towards toward through without within across between beyond while large models model learning approach method methods
-framework study analysis paper towards data system systems task tasks via improving efficient
-open source free tool tools make build built made get got like way ways now day days year years time video pdf audio`.split(/\s+/));
-function tokens(text) {
-  return (text.toLowerCase().match(/[a-z0-9][a-z0-9+#.]*[a-z0-9+#]|[a-z0-9]/g) ?? [])
-    .filter((w) => !STOP.has(w) && !/^[\d.]+$/.test(w) && (w.length > 2 || ["ai", "ml", "os", "ui", "go", "c", "r", "3d", "ux", "vr", "ar"].includes(w)));
-}
-const textsOf = {
-  hn: (s) => (s.hn ?? []).map((h) => h.title),
-  github: (s) => [...reposOf(s).values()].map((r) => `${r.name.split("/")[1].replace(/[-_]/g, " ")} ${r.description ?? ""}`),
-  arxiv: (s) => (s.arxiv ?? []).map((p) => p.title),
-};
-const kwCache = {};
-function keywordCounts(src) {
-  // counts per snapshot: a word counts once per item (story / repo / paper)
-  return (kwCache[src] ??= SNAPS.map((s) => {
-    const m = new Map();
-    for (const t of textsOf[src](s)) for (const w of new Set(tokens(t))) m.set(w, (m.get(w) ?? 0) + 1);
-    return m;
-  }));
-}
 function sparkline(vals) {
   if (vals.length < 2) return `<span class="badge">—</span>`;
   const W = 120, H = 24, max = Math.max(...vals, 1);
@@ -600,17 +547,7 @@ function sparkline(vals) {
 }
 function renderKeywords(src) {
   const t = T();
-  const counts = keywordCounts(src);
-  const today = counts.at(-1);
-  const past = counts.slice(-8, -1);
-  const rows = [...today.entries()]
-    .filter(([, n]) => n >= 2)
-    .map(([w, n]) => {
-      const avg = past.length ? past.reduce((a, m) => a + (m.get(w) ?? 0), 0) / past.length : null;
-      return { w, n, avg, isNew: past.length > 0 && past.every((m) => !m.has(w)), series: counts.map((m) => m.get(w) ?? 0) };
-    })
-    .sort((a, b) => b.n - a.n || a.w.localeCompare(b.w))
-    .slice(0, 15);
+  const rows = D.keywords?.[src] ?? [];
   if (!rows.length) { $("keywords").innerHTML = `<div class="empty">${t.kwEmpty}</div>`; return; }
   const [c1, c2, c3, c4] = t.kwCols;
   $("keywords").innerHTML = `<table><thead><tr><th>${c1}</th><th class="num">${c2}</th><th class="num">${c3}</th><th>${c4}</th></tr></thead><tbody>${rows.map((r) => {
@@ -623,7 +560,7 @@ function renderKeywords(src) {
 const kwTabs = $("kw-tabs");
 let kwSrc = "hn";
 try { kwSrc = localStorage.getItem("kwSrc") || "hn"; } catch {}
-if (!textsOf[kwSrc]) kwSrc = "hn";
+if (!["hn", "github", "arxiv"].includes(kwSrc)) kwSrc = "hn";
 function selectTab(src) {
   kwSrc = src;
   kwTabs.querySelectorAll("button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.src === src)));
@@ -642,51 +579,51 @@ function repoList(rows, badge) {
 
 function render() {
   const t = T();
-  if (!SNAPS.length) {
+  if (!DATES.length) {
     $("notices").innerHTML = `<div class="notice">${t.noDataNotice}</div>`;
     $("meta").textContent = t.noData;
     return;
   }
 
   const when = new Date(latest.collectedAt).toLocaleString(lang === "ko" ? "ko-KR" : "en-US", { timeZone: "Asia/Seoul", month: lang === "ko" ? "long" : "short", day: "numeric", hour: "numeric", minute: "2-digit" });
-  $("meta").textContent = t.meta(when, SNAPS.length);
+  $("meta").textContent = t.meta(when, DATES.length);
 
   const notices = [];
-  if (SNAPS.length < 2) notices.push(t.oneDayNotice);
+  if (DATES.length < 2) notices.push(t.oneDayNotice);
   const errs = Object.entries(latest.errors ?? {});
   if (errs.length) notices.push(t.errorNotice(errs.map(([k, v]) => `${esc(k)} (${esc(v)})`).join(", ")));
   $("notices").innerHTML = notices.map((n) => `<div class="notice">${n}</div>`).join("");
 
   const topHn = hnTop[0];
   const tiles = [
-    { label: t.tileDays, value: t.tileDaysValue(SNAPS.length), hint: t.tileDaysHint(SNAPS[0].date) },
-    { label: t.tileRepos, value: fmt(history.size), hint: t.tileReposHint },
-    { label: t.tileNew, value: SNAPS.length > 1 ? fmt(newRepos.length) : "—", hint: SNAPS.length > 1 ? t.tileNewHint : t.tileNewHintFirst },
+    { label: t.tileDays, value: t.tileDaysValue(DATES.length), hint: t.tileDaysHint(DATES[0]) },
+    { label: t.tileRepos, value: fmt(D.reposTracked), hint: t.tileReposHint },
+    { label: t.tileNew, value: DATES.length > 1 ? fmt(D.newRepos.count) : "—", hint: DATES.length > 1 ? t.tileNewHint : t.tileNewHintFirst },
     { label: t.tileHn, value: topHn ? t.tileHnValue(topHn.points) : "—", hint: topHn ? topHn.title : "" },
   ];
   $("tiles").innerHTML = tiles.map((x) => `<div class="card tile"><div class="label">${x.label}</div><div class="value">${x.value}</div><div class="hint">${esc(x.hint)}</div></div>`).join("");
 
-  $("rising-sub").textContent = SNAPS.length >= 2 ? t.risingSubHistory : t.risingSubWeekly;
+  $("rising-sub").textContent = DATES.length >= 2 ? t.risingSubHistory : t.risingSubWeekly;
   drawRising();
   drawStars();
   selectTab(kwSrc);
 
-  $("new-sub").textContent = SNAPS.length > 1 ? t.newSub(newRepos.length) : t.newSubFirst;
-  $("new-repos").innerHTML = repoList(newRepos, (r) => `★ ${fmt(r.stars)}`);
-  $("gone-sub").textContent = prev ? t.goneSub(prev.date, goneRepos.length) : t.goneSubFirst;
-  $("gone-repos").innerHTML = prev ? repoList(goneRepos, (r) => `★ ${fmt(r.stars)}`) : `<div class="empty">${t.goneEmptyFirst}</div>`;
+  $("new-sub").textContent = DATES.length > 1 ? t.newSub(D.newRepos.count) : t.newSubFirst;
+  $("new-repos").innerHTML = repoList(D.newRepos.items, (r) => `★ ${fmt(r.stars)}`);
+  $("gone-sub").textContent = prev ? t.goneSub(prev.date, D.goneRepos.count) : t.goneSubFirst;
+  $("gone-repos").innerHTML = prev ? repoList(D.goneRepos.items, (r) => `★ ${fmt(r.stars)}`) : `<div class="empty">${t.goneEmptyFirst}</div>`;
 
   $("hn-sub").textContent = t.hnSub(latest.date);
   $("hn-top").innerHTML = hnTop.length ? `<ul class="list ranked">${hnTop.map((h) => `<li><span class="li-main"><a class="repo-name" href="${esc(h.url || h.hnUrl)}" target="_blank" rel="noopener">${esc(h.title)}</a>${prev && !prevHn.has(h.id) ? `<span class="pill">${t.newBadge}</span>` : ""}<span class="desc">${esc(domain(h.url) || "news.ycombinator.com")} · <a href="${esc(h.hnUrl)}" target="_blank" rel="noopener">${t.hnStats(h.points, h.comments)}</a></span></span></li>`).join("")}</ul>` : `<div class="empty">${t.none}</div>`;
 
-  $("arxiv-sub").textContent = t.arxivSub((latest.arxivCategories ?? ["cs.AI", "cs.LG", "cs.CL"]).join(" · "), arxivAll.length);
+  $("arxiv-sub").textContent = t.arxivSub(latest.arxivCategories.join(" · "), latest.arxivTotal);
   renderArxiv();
 }
 
 // arXiv list with a category filter: the top categories get chips, the rest fold into the "All" view
 function renderArxiv() {
   const t = T();
-  const chips = [[null, arxivAll.length], ...arxivCats.slice(0, 8)];
+  const chips = [[null, latest.arxivTotal], ...arxivCats];
   $("arxiv-cats").innerHTML = arxivAll.length ? chips.map(([c, n]) => `<button type="button" data-cat="${esc(c ?? "")}" aria-pressed="${c === arxivCat}">${esc(c ?? t.arxivAll)}<span class="n">${n}</span></button>`).join("") : "";
   const rows = arxivAll.filter((p) => !arxivCat || p.primaryCategory === arxivCat).slice(0, 10);
   $("arxiv-list").innerHTML = rows.length ? `<ul class="list ranked">${rows.map((p) => `<li><span class="li-main"><a class="repo-name" href="${esc(absUrl(p))}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="desc">${esc(p.primaryCategory)} · arXiv:${esc(p.id.replace(/v\d+$/, ""))}</span></span></li>`).join("")}</ul>` : `<div class="empty">${t.none}</div>`;
@@ -704,7 +641,7 @@ render();
 // charts are drawn at real pixel size, so redraw when the width changes
 let lastW = innerWidth, rt;
 addEventListener("resize", () => {
-  if (innerWidth === lastW || !SNAPS.length) return;
+  if (innerWidth === lastW || !DATES.length) return;
   lastW = innerWidth;
   clearTimeout(rt);
   rt = setTimeout(() => { drawRising(); drawStars(); }, 150);

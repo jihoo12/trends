@@ -25,7 +25,7 @@ Hacker News, GitHub Trending, arXiv를 매일 스냅샷으로 쌓고, **시간�
 
 1. `npm run collect`로 스냅샷을 `data/YYYY-MM-DD.json`에 저장해요 (날짜는 KST 기준이고, 같은 날 다시 실행하면 그날 파일을 덮어써요)
 2. 새 스냅샷을 `main`에 커밋해요
-3. `npm run build`로 최근 90일치를 `web/history.js`로 묶고, `web/`을 GitHub Pages에 배포해요
+3. `npm run build`로 최근 90일치에서 화면에 그릴 결과만 미리 계산해 `web/history.js`를 만들고 (기록이 쌓여도 25~40KB 정도로 유지돼요), `web/`을 GitHub Pages에 배포해요
 
 Actions 탭에서 **Run workflow**로 수동 실행할 수도 있어요. `web/`이나 `src/`를 고쳐서 push하면 새 스냅샷 없이 페이지만 다시 배포돼요.
 GitHub 스케줄은 몇 분에서 수십 분 늦게 실행될 수 있어요.
