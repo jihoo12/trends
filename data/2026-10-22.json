@@ -1,0 +1,1511 @@
+{
+  "date": "2026-10-22",
+  "collectedAt": "2026-10-22T02:08:19.068Z",
+  "errors": {},
+  "hn": [
+    {
+      "id": 50189232,
+      "title": "mitmproxy adds --emudhra option",
+      "url": "https://github.com/mitmproxy/mitmproxy/commit/169234499088fc2c414644a67efaed3d64ae2e3b",
+      "hnUrl": "https://news.ycombinator.com/item?id=50189232",
+      "points": 198,
+      "comments": 50
+    },
+    {
+      "id": 50188228,
+      "title": "Railway Security Disclosure",
+      "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st",
+      "hnUrl": "https://news.ycombinator.com/item?id=50188228",
+      "points": 319,
+      "comments": 156
+    },
+    {
+      "id": 50188948,
+      "title": "There isn't an easy exploit for this PHP vulnerability",
+      "url": "https://eliastaylor.com/noexploit/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50188948",
+      "points": 162,
+      "comments": 76
+    },
+    {
+      "id": 50182987,
+      "title": "Today's PHP security release, and how we're strengthening security",
+      "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50182987",
+      "points": 682,
+      "comments": 336
+    },
+    {
+      "id": 50185869,
+      "title": "GitLab Critical Patch Release",
+      "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50185869",
+      "points": 254,
+      "comments": 63
+    },
+    {
+      "id": 50186010,
+      "title": "Google's Rust Style Guide",
+      "url": "https://google.github.io/styleguide/rustguide.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=50186010",
+      "points": 212,
+      "comments": 119
+    },
+    {
+      "id": 50181114,
+      "title": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor",
+      "url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50181114",
+      "points": 440,
+      "comments": 146
+    },
+    {
+      "id": 50161346,
+      "title": "No More Icons in Every Menu by Default",
+      "url": "https://blog.jim-nielsen.com/2026/icons-in-every-menu/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50161346",
+      "points": 185,
+      "comments": 130
+    },
+    {
+      "id": 50184820,
+      "title": "Meta ordered to pay $25B penalty in New Mexico Cambridge Analytica case",
+      "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=50184820",
+      "points": 388,
+      "comments": 239
+    },
+    {
+      "id": 50154100,
+      "title": "Chain of Thought for Humans",
+      "url": "https://www.boristhebrave.com/2026/10/18/chain-of-thought-for-humans/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50154100",
+      "points": 29,
+      "comments": 11
+    },
+    {
+      "id": 50162044,
+      "title": "Tiny possum and glider thought extinct for 6000 years found in remote West Papua",
+      "url": "https://www.bbc.com/news/articles/cp814l80pw2o",
+      "hnUrl": "https://news.ycombinator.com/item?id=50162044",
+      "points": 159,
+      "comments": 25
+    },
+    {
+      "id": 50189666,
+      "title": "The era of speedball capitalism has dawned",
+      "url": "https://www.economist.com/business/2026/09/30/the-era-of-speedball-capitalism-has-dawned",
+      "hnUrl": "https://news.ycombinator.com/item?id=50189666",
+      "points": 19,
+      "comments": 3
+    },
+    {
+      "id": 50166590,
+      "title": "Beyond the &",
+      "url": "https://lwn.net/Articles/1096028/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50166590",
+      "points": 11,
+      "comments": 0
+    },
+    {
+      "id": 50180079,
+      "title": "OpenAI models are coming to Google Cloud",
+      "url": "https://openai.com/index/openai-models-google-cloud/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50180079",
+      "points": 242,
+      "comments": 104
+    },
+    {
+      "id": 50189150,
+      "title": "Airbnb bans making guests do dishes and take out the trash",
+      "url": "https://www.theverge.com/tech/1015844/airbnb-chores-house-rules-update",
+      "hnUrl": "https://news.ycombinator.com/item?id=50189150",
+      "points": 110,
+      "comments": 83
+    },
+    {
+      "id": 50181175,
+      "title": "Patch the Planet: global response coordination as agents uncover vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50181175",
+      "points": 236,
+      "comments": 162
+    },
+    {
+      "id": 50181136,
+      "title": "DuckDB 2.0.0 LTS “Cinnamon Teal”",
+      "url": "https://duckdb.org/2026/10/21/announcing-duckdb-200",
+      "hnUrl": "https://news.ycombinator.com/item?id=50181136",
+      "points": 367,
+      "comments": 46
+    },
+    {
+      "id": 50159726,
+      "title": "Why Windows 11 still ships with Windows 95's memory manager hidden inside it",
+      "url": "https://www.windowslatest.com/2026/10/19/why-windows-11-still-ships-with-windows-95s-memory-manager-hidden-inside-it/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50159726",
+      "points": 138,
+      "comments": 95
+    },
+    {
+      "id": 50152847,
+      "title": "The Rise and Fall of the Plasma Screen",
+      "url": "https://www.construction-physics.com/p/the-rise-and-fall-of-the-plasma-screen",
+      "hnUrl": "https://news.ycombinator.com/item?id=50152847",
+      "points": 36,
+      "comments": 22
+    },
+    {
+      "id": 50184586,
+      "title": "EA is shutting down BioWare",
+      "url": "https://www.theverge.com/games/1015647/ea-is-shutting-down-bioware",
+      "hnUrl": "https://news.ycombinator.com/item?id=50184586",
+      "points": 535,
+      "comments": 321
+    },
+    {
+      "id": 50182526,
+      "title": "Oregon lawmakers approve money to buy an iconic waterfall listed on Redfin",
+      "url": "https://apnews.com/article/oregon-waterfall-for-sale-lawmakers-996de63462d49ec3ad9bee1629fb9488",
+      "hnUrl": "https://news.ycombinator.com/item?id=50182526",
+      "points": 172,
+      "comments": 83
+    },
+    {
+      "id": 50189278,
+      "title": "When Do We Become the Person We Ought to Be?",
+      "url": "https://www.graphsaboutreligion.com/p/when-do-we-become-the-person-we-ought",
+      "hnUrl": "https://news.ycombinator.com/item?id=50189278",
+      "points": 17,
+      "comments": 11
+    },
+    {
+      "id": 50176908,
+      "title": "Launch HN: Alter (YC S25) – Access control for multi-user agents",
+      "url": "https://alterauth.com/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50176908",
+      "points": 52,
+      "comments": 22
+    },
+    {
+      "id": 50180873,
+      "title": "PHP 8.2.35",
+      "url": "https://github.com/php/php-src/releases/tag/php-8.2.35",
+      "hnUrl": "https://news.ycombinator.com/item?id=50180873",
+      "points": 974,
+      "comments": 535
+    },
+    {
+      "id": 50189023,
+      "title": "Κ = 0.003 for integer multiplication crossed",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4441",
+      "hnUrl": "https://news.ycombinator.com/item?id=50189023",
+      "points": 27,
+      "comments": 16
+    },
+    {
+      "id": 50186037,
+      "title": "Claude Duet",
+      "url": "https://claude.com/product/claude-duet",
+      "hnUrl": "https://news.ycombinator.com/item?id=50186037",
+      "points": 318,
+      "comments": 278
+    },
+    {
+      "id": 50153531,
+      "title": "Code is clay now",
+      "url": "https://www.albertodenia.com/writing/code-is-clay-now",
+      "hnUrl": "https://news.ycombinator.com/item?id=50153531",
+      "points": 94,
+      "comments": 53
+    },
+    {
+      "id": 50183512,
+      "title": "New plastic pollution discovered: 'Plasticorals' coral rubble fused with plastic",
+      "url": "https://www.oist.jp/news-center/news/2026/9/18/new-form-plastic-pollution-discovered-shores-vulnerable-coral-reefs",
+      "hnUrl": "https://news.ycombinator.com/item?id=50183512",
+      "points": 101,
+      "comments": 42
+    },
+    {
+      "id": 50180752,
+      "title": "Using thousands of AI agents to uncover new leads in biological data",
+      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50180752",
+      "points": 135,
+      "comments": 85
+    },
+    {
+      "id": 50187708,
+      "title": "PHP web runtimes (CVE-2026-109618 and CVE-2026-109619)",
+      "url": "https://aws.amazon.com/security/security-bulletins/2026-143-aws/",
+      "hnUrl": "https://news.ycombinator.com/item?id=50187708",
+      "points": 110,
+      "comments": 26
+    }
+  ],
+  "github": {
+    "daily": [
+      {
+        "name": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+        "language": "JavaScript",
+        "stars": 36644,
+        "forks": 2288,
+        "starsInPeriod": 2012
+      },
+      {
+        "name": "vllm-project/vllm",
+        "url": "https://github.com/vllm-project/vllm",
+        "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+        "language": "Python",
+        "stars": 94909,
+        "forks": 23751,
+        "starsInPeriod": 441
+      },
+      {
+        "name": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
+        "language": "TypeScript",
+        "stars": 101380,
+        "forks": 6412,
+        "starsInPeriod": 1541
+      },
+      {
+        "name": "headroomlabs-ai/headroom",
+        "url": "https://github.com/headroomlabs-ai/headroom",
+        "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+        "language": "Python",
+        "stars": 77292,
+        "forks": 5997,
+        "starsInPeriod": 474
+      },
+      {
+        "name": "DietrichGebert/ponytail",
+        "url": "https://github.com/DietrichGebert/ponytail",
+        "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+        "language": "JavaScript",
+        "stars": 171756,
+        "forks": 9346,
+        "starsInPeriod": 2079
+      },
+      {
+        "name": "Comfy-Org/ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
+        "language": "Python",
+        "stars": 141568,
+        "forks": 16732,
+        "starsInPeriod": 939
+      },
+      {
+        "name": "supabase/supabase",
+        "url": "https://github.com/supabase/supabase",
+        "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+        "language": "TypeScript",
+        "stars": 113041,
+        "forks": 16942,
+        "starsInPeriod": 504
+      },
+      {
+        "name": "twentyhq/twenty",
+        "url": "https://github.com/twentyhq/twenty",
+        "description": "The open alternative to Salesforce, designed for AI.",
+        "language": "TypeScript",
+        "stars": 59211,
+        "forks": 9665,
+        "starsInPeriod": 112
+      },
+      {
+        "name": "shiyu-coder/Kronos",
+        "url": "https://github.com/shiyu-coder/Kronos",
+        "description": "Kronos: A Foundation Model for the Language of Financial Markets",
+        "language": "Python",
+        "stars": 42860,
+        "forks": 7071,
+        "starsInPeriod": 575
+      },
+      {
+        "name": "strelov1/freehire",
+        "url": "https://github.com/strelov1/freehire",
+        "description": "freehire — the open-source search engine for job seekers",
+        "language": "Go",
+        "stars": 2443,
+        "forks": 248,
+        "starsInPeriod": 360
+      },
+      {
+        "name": "akitaonrails/ai-memory",
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+        "language": "Rust",
+        "stars": 12367,
+        "forks": 874,
+        "starsInPeriod": 286
+      },
+      {
+        "name": "Graphify-Labs/graphify",
+        "url": "https://github.com/Graphify-Labs/graphify",
+        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+        "language": "Python",
+        "stars": 131715,
+        "forks": 12645,
+        "starsInPeriod": 1433
+      }
+    ],
+    "weekly": [
+      {
+        "name": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+        "language": "TypeScript",
+        "stars": 358302,
+        "forks": 89924,
+        "starsInPeriod": 129417
+      },
+      {
+        "name": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official",
+        "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+        "language": "Python",
+        "stars": 43659,
+        "forks": 4602,
+        "starsInPeriod": 5703
+      },
+      {
+        "name": "K-Dense-AI/scientific-agent-skills",
+        "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+        "language": "Python",
+        "stars": 53598,
+        "forks": 4729,
+        "starsInPeriod": 4719
+      },
+      {
+        "name": "ruvnet/ruflo",
+        "url": "https://github.com/ruvnet/ruflo",
+        "description": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
+        "language": "TypeScript",
+        "stars": 78227,
+        "forks": 9205,
+        "starsInPeriod": 3590
+      },
+      {
+        "name": "android/skills",
+        "url": "https://github.com/android/skills",
+        "description": "",
+        "language": "Kotlin",
+        "stars": 9155,
+        "forks": 591,
+        "starsInPeriod": 1332
+      },
+      {
+        "name": "NationalSecurityAgency/ghidra",
+        "url": "https://github.com/NationalSecurityAgency/ghidra",
+        "description": "Ghidra is a software reverse engineering (SRE) framework",
+        "language": "Java",
+        "stars": 92662,
+        "forks": 10384,
+        "starsInPeriod": 5769
+      },
+      {
+        "name": "debpalash/VoiceStudio",
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+        "language": "Python",
+        "stars": 80511,
+        "forks": 8883,
+        "starsInPeriod": 15125
+      },
+      {
+        "name": "mksglu/context-mode",
+        "url": "https://github.com/mksglu/context-mode",
+        "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+        "language": "TypeScript",
+        "stars": 31669,
+        "forks": 2181,
+        "starsInPeriod": 2968
+      },
+      {
+        "name": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "description": "Write HTML. Render video. Built for agents.",
+        "language": "TypeScript",
+        "stars": 69257,
+        "forks": 6272,
+        "starsInPeriod": 5740
+      },
+      {
+        "name": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "description": "Cursor plugin specification and official plugins",
+        "language": "TypeScript",
+        "stars": 13409,
+        "forks": 1333,
+        "starsInPeriod": 2049
+      },
+      {
+        "name": "HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything",
+        "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+        "language": "Python",
+        "stars": 55955,
+        "forks": 5046,
+        "starsInPeriod": 3681
+      },
+      {
+        "name": "akitaonrails/ai-memory",
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+        "language": "Rust",
+        "stars": 12367,
+        "forks": 874,
+        "starsInPeriod": 2833
+      },
+      {
+        "name": "anomalyco/opencode",
+        "url": "https://github.com/anomalyco/opencode",
+        "description": "The open source coding agent.",
+        "language": "TypeScript",
+        "stars": 219719,
+        "forks": 29343,
+        "starsInPeriod": 6545
+      },
+      {
+        "name": "wshobson/agents",
+        "url": "https://github.com/wshobson/agents",
+        "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi",
+        "language": "Python",
+        "stars": 41485,
+        "forks": 4405,
+        "starsInPeriod": 785
+      },
+      {
+        "name": "earthtojake/text-to-cad",
+        "url": "https://github.com/earthtojake/text-to-cad",
+        "description": "Give your agent CAD superpowers.",
+        "language": "Python",
+        "stars": 22309,
+        "forks": 2184,
+        "starsInPeriod": 2000
+      },
+      {
+        "name": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
+        "language": "TypeScript",
+        "stars": 101380,
+        "forks": 6412,
+        "starsInPeriod": 8705
+      }
+    ]
+  },
+  "arxivCategories": [
+    "cs.*",
+    "stat.ML"
+  ],
+  "arxiv": [
+    {
+      "id": "2610.30136v1",
+      "title": "Agentic World Action Models",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30132v1",
+      "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30129v1",
+      "title": "Rethinking Video Autoencoders for Interactive World Models",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30128v1",
+      "title": "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation",
+      "primaryCategory": "cs.IR"
+    },
+    {
+      "id": "2610.30127v1",
+      "title": "VoxProg: 3D Spatial Reasoning through Voxel Programming",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30125v1",
+      "title": "PhysiCalWorld: In-Context Physics Calibration for World Models",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30123v1",
+      "title": "Temporal Exploration and Rendezvous via Weisfeiler-Leman Colorings",
+      "primaryCategory": "cs.DS"
+    },
+    {
+      "id": "2610.30122v1",
+      "title": "A Quasipolynomial Algorithm for $\\ell_\\infty$ Contractions",
+      "primaryCategory": "cs.GT"
+    },
+    {
+      "id": "2610.30121v1",
+      "title": "Geometric Algebra for Neural Networks: A Survey",
+      "primaryCategory": "eess.IV"
+    },
+    {
+      "id": "2610.30120v1",
+      "title": "ALPS: Visual State Encoders for World Models",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30119v1",
+      "title": "Self-normalized Bernstein Inequalities for Regenerative Processes and Applications to Learning Without Independence",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30118v1",
+      "title": "The role of locality and weight sharing in convolutional neural networks",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30117v1",
+      "title": "CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30116v1",
+      "title": "Environment Duels: A Microcosm of LLM Co-Evolution",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30114v1",
+      "title": "The End of Consensus Research?",
+      "primaryCategory": "cs.DC"
+    },
+    {
+      "id": "2610.30113v1",
+      "title": "Quant-Arena: Benchmarking LLM Agents for Quantitative Trading Research",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30109v1",
+      "title": "Minimax Optimality of the NPMLE for Gaussian Mixtures in Hellinger Distance",
+      "primaryCategory": "math.ST"
+    },
+    {
+      "id": "2610.30108v1",
+      "title": "Multimodal Embodied Agents: A Unified Capability-centric Perspective from Computer-Use to Robot-Use",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30107v1",
+      "title": "Velocity Ambiguity Profiles: Time-Resolved Bayes-Risk Diagnostics for Flow Matching",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30105v1",
+      "title": "Asymmetric On-Policy Distillation Learns In-Context Exploration",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30104v1",
+      "title": "BatchBench: Benchmarking AI Robustness to Batch Effects and Domain Shift in Biomedical Images - A JUMP Cell Painting Leaderboard",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30103v1",
+      "title": "Did the Problem Actually Get Harder? Testing LLMs on Paired P and NP-Complete Problems Hardened by Adversarial Multi-Agent Rewriting",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30102v1",
+      "title": "Implementation of Dynamic Microsegmentation for a Multi-Robot Network",
+      "primaryCategory": "eess.SY"
+    },
+    {
+      "id": "2610.30100v1",
+      "title": "Building SQL Equivalence Proofs from Query Rewrite Rules",
+      "primaryCategory": "cs.DB"
+    },
+    {
+      "id": "2610.30099v1",
+      "title": "Differentially Private Sparse Reward Estimation with Preference Feedback",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30097v1",
+      "title": "AtomicRL: Atomic Reinforcement Learning for Long-Horizon Robotic Manipulation",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30090v1",
+      "title": "VX-One: Typed, Calibrated Decision Heads for Real-Time Perimeter Triage - An empirical study of unknown-attack honesty, cascade gray zones, and calibration under drift",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.30089v1",
+      "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30086v1",
+      "title": "Orbitol: Crystal Generation on Wyckoff Orbits",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30080v1",
+      "title": "Do Earth-Trained Humanoid Controllers Walk on the Moon? Gravity, Terrain, and Soil Transfer",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30076v1",
+      "title": "Circuits of LLM Classifiers",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30075v1",
+      "title": "From Classifier Heads to Encoder Prototypes: Personalized Federated Learning with Head-Derived Clustering",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30074v1",
+      "title": "Parallel AI Agent Collaboration as Graph-Structured Distributed Block Optimization",
+      "primaryCategory": "cs.MA"
+    },
+    {
+      "id": "2610.30072v1",
+      "title": "Charts as Epistemic Actions for Experience-Driven Agentic Data Analysis",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.30068v1",
+      "title": "Loopholing All the Way: Language Modeling with pure Self-Conditioning",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30067v1",
+      "title": "GoiBERT: Compact Vietnamese Language Models via Two-Stage Knowledge Distillation",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30066v1",
+      "title": "Looped Uniform Diffusion Language Models",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30061v1",
+      "title": "Test-Time Motion Steering for Perceptive Humanoid Fall Recovery",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30059v1",
+      "title": "Validating Autoformalized Specifications via Contrapuntal Languages",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.30055v1",
+      "title": "A Real-time tax compliance architecture for VAT split payments with Making Tax Smart and Open Banking",
+      "primaryCategory": "cs.DC"
+    },
+    {
+      "id": "2610.30054v1",
+      "title": "Multiplying matrices via polynomials: exposition and barriers",
+      "primaryCategory": "cs.CC"
+    },
+    {
+      "id": "2610.30052v1",
+      "title": "Tight Bounds on the Randomized Communication Complexity of Vector-in-Subspace",
+      "primaryCategory": "cs.CC"
+    },
+    {
+      "id": "2610.30051v1",
+      "title": "From Reasoning to Action: Benchmarking Frontier AI Models on LIBERO-10 Robot Manipulation Tasks",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30047v1",
+      "title": "SWE-DIVE: Multi-Turn Coding Agent Evaluation with Dynamic User Simulation",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.30045v1",
+      "title": "Which Differences Matter? Controlled Tests of Rule Transfer, Joint Reliability, and Information Use in Decision Models",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.30044v1",
+      "title": "SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30043v1",
+      "title": "TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.30042v1",
+      "title": "HGM-Dual: Lineage-Aware Guided Agent Harness Optimization for Long-Horizon Planning",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.30041v1",
+      "title": "Robust Soft Skill Adaptation via Behavioral Localization in Tool-Using Agents",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.30036v1",
+      "title": "Attn-Forcing: Learning Full-Context Attention Proxies for Streaming Video Generation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30035v1",
+      "title": "Plausible but Unimplantable: A Trustworthiness Audit of Shape Completion Foundation Models for Cranial Defect Reconstruction",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30033v1",
+      "title": "RLMuscle: Muscle-Driven Character Animation via Reinforcement Learning",
+      "primaryCategory": "cs.GR"
+    },
+    {
+      "id": "2610.30032v1",
+      "title": "Measurement-Guided Conversion of Laboratory Eye-Tracking Data for VR Authentication",
+      "primaryCategory": "cs.HC"
+    },
+    {
+      "id": "2610.30026v1",
+      "title": "What the Author Wrote, What the Agent Reads: Silent Cue Loss in Enterprise Document Ingestion",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30023v1",
+      "title": "RealMe: Immersive Volumetric Video from Minimal Captures",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30022v1",
+      "title": "Stationarity Constraints Improve Both Energies and Densities of Machine-Learned Exchange-Correlation Functionals",
+      "primaryCategory": "physics.chem-ph"
+    },
+    {
+      "id": "2610.30021v1",
+      "title": "Approximation and Inapproximability of Non-Preemptive Dial-a-Ride",
+      "primaryCategory": "cs.DS"
+    },
+    {
+      "id": "2610.30018v1",
+      "title": "ExGrad: Beyond Suppression - Explicit Clean-Gradient Subtraction in Adversarial Training",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30017v1",
+      "title": "GuideEvolve: Self-Evolving Agent Framework with Expert Guidance and 3Ts Mechanisms",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.30016v1",
+      "title": "Code Comprehensor: Hierarchical Documentation and Cross-Modal Retrieval for Large Repositories",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.30015v1",
+      "title": "Enhancing IoT Network Reliability through Antenna Diversity in Real-World Scenarios",
+      "primaryCategory": "cs.NI"
+    },
+    {
+      "id": "2610.30014v1",
+      "title": "Agent Behavior Maps: Locating Agents by What They Would Do, Without Running Them",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30013v1",
+      "title": "ClunoGS: Compact Language 3D Gaussian Splatting via Unified Optimization",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30009v1",
+      "title": "Mitigating Model Collapse through Dreaming Learning",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.30007v1",
+      "title": "Multiclass Boundary Refinement with Neural Cellular Automata for Remote Sensing Land Cover Segmentation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.30006v1",
+      "title": "Building Auditable AI Text Detectors with Sparse Autoencoders",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.30003v1",
+      "title": "On optimal (v,5,3,1) optical orthogonal codes",
+      "primaryCategory": "math.CO"
+    },
+    {
+      "id": "2610.30004v1",
+      "title": "Every Alarm Has a Cause: An Open Generator of Telecom Alarm Storms with Exact Root Causes, Bound to NORIA-O, RFC 8632 and TMF642",
+      "primaryCategory": "cs.NI"
+    },
+    {
+      "id": "2610.30001v1",
+      "title": "When Majority-Vote Fails: Sequence Reconstruction under Fixed-Weight Substitutions",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29999v1",
+      "title": "EPIC: Rethinking Trust Regions for Autoregressive LLM Policies via Exact-KL Prefix Importance-Ratio Clipping",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29997v1",
+      "title": "DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29996v1",
+      "title": "HiddenLens: A Multi-Layer LLM Framework for Detecting and Resolving Hidden Assumptions in Software Requirements",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29995v1",
+      "title": "Remembering Through Change: Provenance-Preserving Hypergraph Memory for Multimodal Agents",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29994v1",
+      "title": "Pinch-Free Orientations of Polyomino Grid Graphs",
+      "primaryCategory": "cs.CG"
+    },
+    {
+      "id": "2610.29992v1",
+      "title": "SCDM: Scalable Causal Discovery in Nonlinear Temporal Systems with Meta-Learning",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29989v1",
+      "title": "Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29988v1",
+      "title": "Enumeration-based Triangle Counting on GPUs",
+      "primaryCategory": "cs.DC"
+    },
+    {
+      "id": "2610.29987v1",
+      "title": "GhostFaceMPC: Privacy-Preserving Face Recognition with Multi-Party Computation",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29985v1",
+      "title": "TIDE: Tree-Induced Fine-Grained Diagnostic Evaluation from Model Behaviors",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29983v1",
+      "title": "Free-XOR TFHE via Lazy Bootstrapping",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29982v1",
+      "title": "The Price of Current-Effect Inference in Nonstationary Multi-Armed Bandits",
+      "primaryCategory": "stat.ML"
+    },
+    {
+      "id": "2610.29969v1",
+      "title": "FaultGene: LLM-Assisted Fault-Augmented Test Generation for Hardware-in-the-Loop Validation of Autonomous Driving Systems",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29968v1",
+      "title": "CulturalRiddles: A Multicultural Benchmark of Riddles",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29965v1",
+      "title": "CORD: Conflict-Aware Optimization for Joint RL and Distillation in Agents",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29964v1",
+      "title": "Object- and Task-Aware Active Perception for Safe Navigation of Mobile Manipulators in Semi-Static Environments",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29961v1",
+      "title": "Commit or Abstain? System One Decision Models, LLMs, and Missing Legal Authority",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29960v1",
+      "title": "Mastering Model Fit: Applications of the InterModel Vigorish for Interpretable Machine Learning",
+      "primaryCategory": "stat.ME"
+    },
+    {
+      "id": "2610.29959v1",
+      "title": "Training-free Acceleration for Blind Compressed Image Restoration via Activation-Calibrated Singular Value Decomposition",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29954v1",
+      "title": "The Capacity of Interactive Secure Summation",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29949v1",
+      "title": "Existence of Minimizers for the Gaussian Mumford-Shah Model via Covariance Floors on the Value Distribution",
+      "primaryCategory": "math.ST"
+    },
+    {
+      "id": "2610.29945v1",
+      "title": "Pre-emptive Carbon Aware Scheduling for Edge Workloads",
+      "primaryCategory": "cs.DS"
+    },
+    {
+      "id": "2610.29943v1",
+      "title": "Towards English - Mizo Legal Machine Translation: Corpus Creation, Analysis, and Benchmarks",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29939v1",
+      "title": "ERCLIP: Small-Data Adaptation of CLIP for Free-Length Image-Text Retrieval",
+      "primaryCategory": "cs.IR"
+    },
+    {
+      "id": "2610.29936v1",
+      "title": "DewHand: Direct Metric World-Space Hand Motion Reconstruction from Egocentric Videos",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29934v1",
+      "title": "ToM2Vec: Continuous Theory-of-Mind Tokens for Multi-Agent Coordination",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29933v1",
+      "title": "Graph Topology Meets Energy-Driven Pathfinding: Preserving Contextual Consistency in Retrieval-Augmented Generation",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29932v1",
+      "title": "FrontierCS 2: A Benchmark for Computer Science R&D",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29929v1",
+      "title": "Privacy Preference Controls for Agentic Systems",
+      "primaryCategory": "cs.CY"
+    },
+    {
+      "id": "2610.29928v1",
+      "title": "A Learned Musical-Time Coordinate for Piano Audio-to-Score Transcription",
+      "primaryCategory": "cs.SD"
+    },
+    {
+      "id": "2610.29927v1",
+      "title": "Your Benchmark Is an Empirical Measure Over Difficulty",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29926v1",
+      "title": "Task-Preserving Multilingual Instruction Tuning for Open-Ended QA in WMT 2026 MIST",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29925v1",
+      "title": "Privacy in Context Is Being Overlooked in the Age of General-Purpose LLMs",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29924v1",
+      "title": "Geospatial Dynamics of Online Attention to Nuclear Power in Japan Before and After Fukushima",
+      "primaryCategory": "cs.SI"
+    },
+    {
+      "id": "2610.29922v1",
+      "title": "Unintended Side Effects of Value Training in LLMs",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29918v1",
+      "title": "Preventing Model Extraction in Contextual Linear Optimization",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29915v1",
+      "title": "CausalAlign: Causal Alignment of Video Generation Models for Consistent Ego-Motion",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29913v1",
+      "title": "Asking a Multimodal LLM Whether Someone Fell: Zero-Shot Screening of Low-Resolution Thermal Video in a Laboratory and an Occupied Home",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29909v1",
+      "title": "Tractable Inference with Kolmogorov-Arnold Networks",
+      "primaryCategory": "physics.comp-ph"
+    },
+    {
+      "id": "2610.29907v1",
+      "title": "Benchmarking Large Language Models for Detecting Satirical Code-Mixed Sentences",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29905v1",
+      "title": "ViBMR: A Large-Scale Multi-Sequence Brain MRI Dataset and Comprehensive Evaluation for Vietnamese Radiology Report Generation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29903v1",
+      "title": "HuMiT: Low-Latency Whole-Body Humanoid Teleoperation via Compact Reference Tracking",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29898v1",
+      "title": "A Sharp Dynamic Haussler Lemma",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29896v1",
+      "title": "Investigating the Impact of Learner Errors on Social Bias in Large Language Models",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29895v1",
+      "title": "Automated Materials Data and Knowledge Extraction using Machine Learning and Large Language Models",
+      "primaryCategory": "cond-mat.mtrl-sci"
+    },
+    {
+      "id": "2610.29890v1",
+      "title": "DynaCI: Generating GitHub Actions Workflows via Dynamic Analysis",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29889v1",
+      "title": "Nashtopes and their A-discriminants",
+      "primaryCategory": "math.CO"
+    },
+    {
+      "id": "2610.29886v1",
+      "title": "Characterizing and Defending Utility-Hijacking in Instruction-Tuning Data Selection",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29881v1",
+      "title": "Expandable Modality Experts for Medical Vision-Language Learning",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29875v1",
+      "title": "Stochastic Nonlinearities Improve Uncertainty Estimation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29874v1",
+      "title": "Coherent differentiation with a monoid of degrees: derivatives, Taylor expansion, finite differences...",
+      "primaryCategory": "cs.LO"
+    },
+    {
+      "id": "2610.29873v1",
+      "title": "HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference",
+      "primaryCategory": "cs.AR"
+    },
+    {
+      "id": "2610.29870v1",
+      "title": "PAUSE: Search-Free Steering of Coding Agents Before Their First Source-Code Edit",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29869v1",
+      "title": "Compaction Laundering: Provenance Destruction in Context-Compacting Coding Agents",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29866v1",
+      "title": "GeoMem-VLA: Internalizing 3D Scene Understanding into Temporal Memory for Vision-Language-Action Models",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29864v1",
+      "title": "Silent Alignment in Two-Layer Linear Networks: A High-Dimensional Perspective",
+      "primaryCategory": "stat.ML"
+    },
+    {
+      "id": "2610.29854v1",
+      "title": "How Do DiTs Denoise? An Aggregator-Predictor View of Attention and MLPs",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29845v1",
+      "title": "RangeNav: Task-Aligned LiDAR Range-Image Pretraining for Robot Navigation",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29843v1",
+      "title": "Every Part Has Its Role: Part-of-Speech Effects in LLM Post-Training",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29841v1",
+      "title": "Broadband Mid-Wave Infrared Imaging Enabled by All-Silicon Hyperboloid Metalens",
+      "primaryCategory": "physics.optics"
+    },
+    {
+      "id": "2610.29839v1",
+      "title": "Spacetime Splines for Adaptive Robot Motions",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29837v1",
+      "title": "Linear Self-Symmetries of Inverse-Based S-boxes: Generic Rigidity and Applications",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29836v1",
+      "title": "AT-Differ: Dataset for Audio-Text Difference Captioning",
+      "primaryCategory": "cs.SD"
+    },
+    {
+      "id": "2610.29835v1",
+      "title": "Linear Complementary Pairs of MDS Codes from Elliptic Curves",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29832v1",
+      "title": "S-EDL: Eliciting Self-Evidence from Sequence Likelihoods for Semantic Calibration of LLMs",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29830v1",
+      "title": "Revealing Hidden Failure Modes in Chest X-ray Classification via Spectral Domain Analysis",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29829v1",
+      "title": "Robot Generalization Beyond Volume: The Diversity Path via Zero-Shot Capabilities",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29828v1",
+      "title": "Early versus Late RGB-Infrared Fusion for Counter-UAV Detection: A Comparative Study",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29825v1",
+      "title": "GuidedSAM-Plume: An Expert-Guided Segmentation Framework for Volcanic Plumes",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29823v1",
+      "title": "MemoryTax: The Bitter Lesson of Agent Memory",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29822v1",
+      "title": "UserSWE: Evaluating Coding Agents in Multi-Turn Conversations with Dynamic Users",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29821v1",
+      "title": "Controlling Variability in~Neuroimaging Analysis Pipelines with~Software Product Lines",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29820v1",
+      "title": "UlaCache: Unified Logical Addressing for Sparse LLM Serving",
+      "primaryCategory": "cs.DC"
+    },
+    {
+      "id": "2610.29817v1",
+      "title": "Pfaffian Recognition is in coRP",
+      "primaryCategory": "cs.CC"
+    },
+    {
+      "id": "2610.29816v1",
+      "title": "COMET: A coordinated multi-layer runtime monitoring framework for human-supervised AI-enabled safety systems",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29815v1",
+      "title": "NeuroCodec: EEG-Guided Latent-Domain Generative Model for High-Fidelity Target Speaker Extraction",
+      "primaryCategory": "eess.AS"
+    },
+    {
+      "id": "2610.29812v1",
+      "title": "Real PMIDs, Wrong Papers: Harness Design for Biomedical Claim-Verification Agents",
+      "primaryCategory": "cs.AI"
+    },
+    {
+      "id": "2610.29811v1",
+      "title": "Compositionality with Primitives: A Unified View from Euclidean to Hyperbolic Vision-Language Models",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29810v1",
+      "title": "On the maximum length of cyclic MDS codes",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29807v1",
+      "title": "Some Results on the Weight Spectrum of Binary Reed-Muller Codes $RM(m-7,m)$",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29802v1",
+      "title": "Prefix Visibility Ratio: Quantifying Partial Observability in Carpet Bombing Detection",
+      "primaryCategory": "cs.NI"
+    },
+    {
+      "id": "2610.29798v1",
+      "title": "Asymmetric Likelihood-Free Hypothesis Testing",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29792v1",
+      "title": "MAPS: Macro-Adaptive Parallel Reasoning for Regulating Search Momentum in Retrieval-Augmented Generation",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29788v1",
+      "title": "Open-Vocabulary Models and Label Propagation for Uncertainty-aware Pseudo-Labeling of Object Detection Datasets",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29787v1",
+      "title": "D-Pingmesh: Dynamic Probing and Fault Localization for Reconfigurable Datacenter Networks",
+      "primaryCategory": "cs.NI"
+    },
+    {
+      "id": "2610.29785v1",
+      "title": "Where Do LLMs Learn to Recommend AI?",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29784v1",
+      "title": "Evolving with Open Worlds: Towards Recursive Self-Improvement for Future Forecasting",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29781v1",
+      "title": "An experimental evaluation of static k-center clustering algorithms on graphs",
+      "primaryCategory": "cs.DS"
+    },
+    {
+      "id": "2610.29780v1",
+      "title": "JointLight: Human-Centric Video Relighting with Asynchronous RGB-Irradiance Joint Modeling",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29777v1",
+      "title": "Key Findings for Small UAS for Post-Disaster Damage Assessment from the CURSE'26 Exercise",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29776v1",
+      "title": "Fully Dynamic Triangle and 4-Vertex Subgraph Counting: From Theory to Practice and Back Again",
+      "primaryCategory": "cs.DS"
+    },
+    {
+      "id": "2610.29774v1",
+      "title": "Do Flow-Generation Tools Matter? Unsupervised Characterization of MQTT Traffic Across Public Datasets",
+      "primaryCategory": "cs.NI"
+    },
+    {
+      "id": "2610.29772v1",
+      "title": "Location-of-interest vs. Current-location Privacy in Multi-hop Communication",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29771v1",
+      "title": "Logic vs doctrines, a mirror symmetry",
+      "primaryCategory": "math.CT"
+    },
+    {
+      "id": "2610.29768v1",
+      "title": "UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29767v1",
+      "title": "ALIAS: Evaluating Performance and Memorization in LLM-Written TLA+ Specifications",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29761v1",
+      "title": "OMAR: Open-World Multi-Attribute Reasoning for Scene-Conditioned Shelf Organization",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29758v1",
+      "title": "AssureCode: Structured Justification for Trustworthy Agentic Coding",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29756v1",
+      "title": "The Privacy Paradox Is a Misnomer: Data Under Structural Uncertainty",
+      "primaryCategory": "cs.CY"
+    },
+    {
+      "id": "2610.29755v1",
+      "title": "VeruSteer: Learning What to Repair Next in Verus",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29751v1",
+      "title": "Bridging Foundational and Agentic Capabilities of LLMs",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29749v1",
+      "title": "Metamodel-Guided LLM Decoding for Consistent DSL Generation",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29747v1",
+      "title": "Prompt Injection Through Forensic Evidence: A Taxonomy and Proof of Concept of Anti-Forensic Attacks on LLM-Assisted Digital Investigations",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29746v1",
+      "title": "LEAF-Mamba: Feature Adaptation and Fusion for Whole Slide Image Analysis",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29744v1",
+      "title": "On Almost MDS codes holding $(n-k-1)$-designs and an open problem on Witt design",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29741v1",
+      "title": "Engineering Requirements for Generative AI Agents: The BARD Process Theory",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29740v1",
+      "title": "APED-CXR: Adaptive Privileged Evidence Distillation for Chest X-Ray Grounding with Image-Only Inference",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29738v1",
+      "title": "Learning to Measure and Diagnose: A Clinical-Dictionary Radiomic Bottleneck Model for Thyroid Nodule Classification",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29736v1",
+      "title": "Two Sides of the Same Proof: Extraction and Projection in Choreographic Programming",
+      "primaryCategory": "cs.LO"
+    },
+    {
+      "id": "2610.29734v1",
+      "title": "Monitorability Is Trainable: Post-Training for Chain-of-Thought Monitorability",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29733v1",
+      "title": "SAKURA: Serving Attention Key-Value State Under Rate Adaptation for Private Image Editing on Phones",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29731v1",
+      "title": "Computing the Nucleon of Matching Games",
+      "primaryCategory": "cs.GT"
+    },
+    {
+      "id": "2610.29730v1",
+      "title": "Post-hoc Epistemic Uncertainty for Vision-Language-Action Policies",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29727v1",
+      "title": "Accept or Repair: Preserving Passage-Supported Answers in Contrastive Decoding",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29725v1",
+      "title": "Structure-Aware Message Passing on Petri Nets through Directed Walks and Incidence Diffusion",
+      "primaryCategory": "cs.LG"
+    },
+    {
+      "id": "2610.29724v1",
+      "title": "Sufficient and Necessary Causal Explanations for the Analysis of Autonomous Systems",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29722v1",
+      "title": "Retrieval Augmented Generation Compositionality",
+      "primaryCategory": "cs.CL"
+    },
+    {
+      "id": "2610.29720v1",
+      "title": "Bio-Inspired Auditory Processing: Coupling Parallel Resonate-and-Fire Dynamics with Ternary Recurrent Networks for Speech Recognition",
+      "primaryCategory": "cs.SD"
+    },
+    {
+      "id": "2610.29716v1",
+      "title": "Reconstruction-Augmented Visuomotor Pre-Training of 3D-Grounded Bimanual Dexterity from RGB-Only Human Videos",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29702v1",
+      "title": "CausGround: Causal Interaction Grounding for Adaptive Embodied Planning",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29701v1",
+      "title": "Beyond Policy Engines: Binding-Complete Execution Admission",
+      "primaryCategory": "cs.CR"
+    },
+    {
+      "id": "2610.29700v1",
+      "title": "S-PASS: Star-Topology Pinching-Antenna Systems with Pipelined Antenna Pre-Positioning",
+      "primaryCategory": "cs.IT"
+    },
+    {
+      "id": "2610.29699v1",
+      "title": "AirPlayground: Benchmarking Aerial Navigation across Diverse Reconstructed Environments",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29697v1",
+      "title": "Forward-Only Learning for Shared-Kernel Wavelet Neural Networks without Backpropagation",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29696v1",
+      "title": "Quantum f-divergences from retrodiction: a unifying classical variational principle",
+      "primaryCategory": "quant-ph"
+    },
+    {
+      "id": "2610.29695v1",
+      "title": "Benchmarking Coding Agents for System-Level Performance Optimization",
+      "primaryCategory": "cs.SE"
+    },
+    {
+      "id": "2610.29692v1",
+      "title": "FlowVLA: Learning Flow-Aware Physical Completion for Quantitative Robotic Pouring",
+      "primaryCategory": "cs.RO"
+    },
+    {
+      "id": "2610.29691v1",
+      "title": "Efficient Generative Image Compression with Quantized Latents Refinement",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29689v1",
+      "title": "WaRP: Workload-Aware Request Planning for Vector Retrieval on Object Storage",
+      "primaryCategory": "cs.DB"
+    },
+    {
+      "id": "2610.29688v1",
+      "title": "Rethinking Post-hoc Debiasing of Large Pretrained Models",
+      "primaryCategory": "cs.CV"
+    },
+    {
+      "id": "2610.29687v1",
+      "title": "Wave Processing Unit: Closed-Form Matrix Synthesis for Wave Computing in Multiuser MIMO Communications",
+      "primaryCategory": "eess.SP"
+    }
+  ]
+}
